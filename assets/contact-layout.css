@@ -1,0 +1,25 @@
+/* Contact page: let the campus mapping occupy the full visual column. */
+div:has(> img[src*="contact-campus-sketch"]):has(> img[src*="contact-logo"]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img[src*="contact-logo"] {
+  display: none;
+}
+
+img[src*="contact-campus-sketch"] {
+  width: 100%;
+  height: auto;
+  transform: none;
+}
+
+@media (min-width: 1024px) {
+  img[src*="contact-campus-sketch"] {
+    width: auto;
+    height: min(78svh, 900px);
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
