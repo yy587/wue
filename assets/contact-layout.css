@@ -21,6 +21,6 @@ img[src*="contact-campus-sketch"] {
     height: min(78svh, 900px);
     max-width: 100%;
     object-fit: contain;
-    transform: translateY(1.5rem);
+    transform: translateY(2.5rem);
   }
 }
