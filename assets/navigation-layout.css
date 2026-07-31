@@ -1,0 +1,5 @@
+/* Keep the navigation as an opaque foreground module above page artwork. */
+header.fixed {
+  isolation: isolate;
+  background: #fff;
+}
