@@ -1,0 +1,7 @@
+/* Align the home-page project preview with the navigation divider's end. */
+@media (min-width: 768px) {
+  .cad-hover-preview {
+    right: 0;
+    left: auto !important;
+  }
+}
