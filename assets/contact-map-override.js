@@ -1,4 +1,4 @@
-const mappingPath = "/assets/contact-campus-sketch-4599eaa1.jpg";
+const mappingPath = "/assets/contact-campus-sketch-white-ecfcf96a.png";
 
 function replaceContactMapping() {
   document
