@@ -232,5 +232,6 @@
     closeArchive();
     queueMount();
   });
+  window.WUEArchive = { open: openArchive, close: closeArchive };
   queueMount();
 })();
