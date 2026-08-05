@@ -27,6 +27,8 @@
   let dataPromise;
   let mountTimer;
   let currentPath = "";
+  let relocatedAside;
+  let asidePlaceholder;
 
   function isProcessPage() {
     return window.location.pathname.replace(/\/$/, "").endsWith("/process");
@@ -46,12 +48,35 @@
     return new URL(item.asset, siteRoot).href;
   }
 
+  function restoreHoverInteraction(rail) {
+    let expansionTimer;
+    rail.addEventListener("mouseover", (event) => {
+      const row = event.target.closest?.("aside div.border-b");
+      if (!row || row.contains(event.relatedTarget)) return;
+      window.clearTimeout(expansionTimer);
+      expansionTimer = window.setTimeout(() => {
+        const button = row.querySelector(":scope > button[aria-expanded]");
+        if (button?.getAttribute("aria-expanded") === "false") button.click();
+      }, 80);
+    });
+    rail.addEventListener("mouseout", (event) => {
+      const row = event.target.closest?.("aside div.border-b");
+      if (row && !row.contains(event.relatedTarget)) window.clearTimeout(expansionTimer);
+    });
+  }
+
   function cleanup() {
+    if (relocatedAside && asidePlaceholder?.parentNode) {
+      asidePlaceholder.parentNode.insertBefore(relocatedAside, asidePlaceholder);
+      asidePlaceholder.remove();
+    }
+    relocatedAside = null;
+    asidePlaceholder = null;
     document.getElementById("wue-process-redesign")?.remove();
     document.body.classList.remove("wue-process-redesign-active");
   }
 
-  function makePage(processItems) {
+  function makePage(processItems, originalAside) {
     const byId = new Map(processItems.map((item) => [item.id, item]));
     const featured = featuredIds.map((id) => byId.get(id)).filter(Boolean);
     const section = document.createElement("section");
@@ -59,11 +84,13 @@
     section.className = "wue-process-editorial";
     section.innerHTML = `
       <div class="wue-process-editorial-container">
-        <header class="wue-process-editorial-header">
-          <div><p>WUE DESIGN / PROCESS</p><h1>设计流程</h1></div>
-          <div><p>从第一次沟通到落地收尾，我们以清晰流程保证设计精度。</p><button type="button">浏览全部流程资料 <small>44 ITEMS&nbsp; →</small></button></div>
-        </header>
-        <div class="wue-process-collage"></div>
+        <div class="wue-process-layout">
+          <div class="wue-process-visual">
+            <p class="wue-process-visual-kicker">WUE DESIGN / PROCESS ARCHIVE</p>
+            <div class="wue-process-collage"></div>
+          </div>
+          <div class="wue-process-original-rail"></div>
+        </div>
       </div>
     `;
     const collage = section.querySelector(".wue-process-collage");
@@ -81,7 +108,9 @@
       figure.append(button, caption);
       collage.appendChild(figure);
     });
-    section.querySelector(".wue-process-editorial-header button").addEventListener("click", () => window.WUEArchive?.open("process"));
+    const rail = section.querySelector(".wue-process-original-rail");
+    rail.appendChild(originalAside);
+    restoreHoverInteraction(rail);
     return section;
   }
 
@@ -94,11 +123,15 @@
     }
     currentPath = path;
     if (document.getElementById("wue-process-redesign")) return;
-    if (!document.querySelector("#root main section")) return;
+    const originalAside = document.querySelector("#root main aside");
+    if (!document.querySelector("#root main section") || !originalAside) return;
     const data = await loadData();
     if (!isProcessPage() || document.getElementById("wue-process-redesign")) return;
+    relocatedAside = originalAside;
+    asidePlaceholder = document.createComment("wue-process-aside");
+    originalAside.parentNode.insertBefore(asidePlaceholder, originalAside);
     document.body.classList.add("wue-process-redesign-active");
-    document.body.appendChild(makePage(data.process));
+    document.getElementById("root").appendChild(makePage(data.process, originalAside));
   }
 
   function scheduleMount() {

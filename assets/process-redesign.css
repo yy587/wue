@@ -1,6 +1,6 @@
 body.wue-process-redesign-active #root {
-  min-height: 0 !important;
-  height: 0;
+  min-height: 100svh !important;
+  height: auto;
 }
 
 body.wue-process-redesign-active #root main { display: none; }
@@ -18,59 +18,47 @@ body.wue-process-redesign-active #root main { display: none; }
   margin: 0 auto;
 }
 
-.wue-process-editorial-header {
+.wue-process-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 238px;
-  gap: 2rem;
-  align-items: end;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgb(18 18 18 / 14%);
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 238px);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: start;
 }
 
-.wue-process-editorial-header > div:first-child > p {
-  margin: 0 0 0.65rem;
+.wue-process-visual {
+  min-width: 0;
+}
+
+.wue-process-visual-kicker {
+  margin: 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgb(18 18 18 / 14%);
   font-size: 9px;
   letter-spacing: 0.3em;
   color: rgb(18 18 18 / 54%);
 }
 
-.wue-process-editorial-header h1 {
-  margin: 0;
-  font-size: clamp(2rem, 3.4vw, 3.7rem);
-  font-weight: 300;
-  line-height: 0.96;
-  letter-spacing: -0.04em;
+.wue-process-original-rail {
+  min-width: 0;
+  padding-top: 0.1rem;
 }
 
-.wue-process-editorial-header > div:last-child {
-  display: grid;
-  gap: 0.75rem;
+.wue-process-original-rail > aside {
+  width: 100% !important;
+  max-width: none !important;
+  padding-top: 0 !important;
+  overflow: visible !important;
 }
 
-.wue-process-editorial-header > div:last-child > p {
-  max-width: 30ch;
-  margin: 0;
-  font-size: 10px;
-  line-height: 1.75;
-  color: rgb(18 18 18 / 54%);
+.wue-process-original-rail .projects-scroll {
+  max-height: calc(100svh - 18rem) !important;
+  overflow-y: auto !important;
+  scrollbar-width: thin;
 }
-
-.wue-process-editorial-header button {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-top: 0.7rem;
-  border-top: 1px solid rgb(18 18 18 / 12%);
-  text-align: left;
-  font-size: 9px;
-  letter-spacing: 0.08em;
-}
-
-.wue-process-editorial-header button small { font-size: 8px; letter-spacing: 0.16em; color: rgb(18 18 18 / 36%); }
 
 .wue-process-collage {
   display: grid;
-  height: min(760px, calc(100svh - 12rem));
+  height: min(780px, calc(100svh - 8.5rem));
   min-height: 590px;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-rows: repeat(11, minmax(0, 1fr));
@@ -147,8 +135,13 @@ body.wue-process-redesign-active #root main { display: none; }
 
 @media (max-width: 900px) {
   .wue-process-editorial { padding-top: calc(1cm + 3.2rem); }
-  .wue-process-editorial-header { grid-template-columns: 1fr; gap: 1.2rem; }
-  .wue-process-editorial-header h1 { font-size: 2.4rem; }
+  .wue-process-layout { grid-template-columns: 1fr; gap: 2rem; }
+  .wue-process-original-rail { order: 1; }
+  .wue-process-visual { order: 2; }
+  .wue-process-original-rail .projects-scroll {
+    max-height: none !important;
+    overflow: visible !important;
+  }
   .wue-process-collage { display: flex; height: auto; min-height: 0; flex-direction: column; gap: 2.6rem; padding-top: 1.5rem; }
   .wue-process-feature { width: 92%; }
   .wue-process-feature:nth-child(even) { width: 78%; align-self: flex-end; }
