@@ -5,6 +5,7 @@
   let dataPromise;
   let currentPath = "";
   let mountTimer;
+  let slideTimer;
 
   function isAwardsPage() {
     return window.location.pathname.replace(/\/$/, "").endsWith("/awards");
@@ -34,6 +35,8 @@
   }
 
   function cleanup() {
+    clearInterval(slideTimer);
+    slideTimer = null;
     document.getElementById("wue-awards-redesign")?.remove();
     document.body.classList.remove("wue-awards-redesign-active");
   }
@@ -77,16 +80,26 @@
     const previewGroup = section.querySelector(".wue-awards-preview-meta span");
     const previewCaption = section.querySelector(".wue-awards-preview-meta p");
     let activeGroup = items[0]?.group || "全部";
+    let previewToken = 0;
+    let slideIndex = 0;
 
     function setPreview(item) {
       if (!item) return;
-      previewImage.src = assetUrl(item);
-      previewImage.alt = item.caption;
-      previewImage.width = item.width;
-      previewImage.height = item.height;
-      previewGroup.textContent = `${item.group} / ${item.kind}`;
-      previewCaption.textContent = item.caption;
-      activeGroup = item.group;
+      const token = ++previewToken;
+      const loader = new Image();
+      previewImage.classList.add("is-changing");
+      loader.onload = () => {
+        if (token !== previewToken) return;
+        previewImage.src = loader.src;
+        previewImage.alt = item.caption;
+        previewImage.width = item.width;
+        previewImage.height = item.height;
+        previewGroup.textContent = `${item.group} / ${item.kind}`;
+        previewCaption.textContent = item.caption;
+        activeGroup = item.group;
+        requestAnimationFrame(() => previewImage.classList.remove("is-changing"));
+      };
+      loader.src = assetUrl(item);
     }
 
     function render(kind) {
@@ -102,18 +115,14 @@
         const rows = article.querySelector("div");
         groupItems.forEach((item) => {
           sequence += 1;
-          const row = document.createElement("button");
-          row.type = "button";
+          const row = document.createElement("div");
           row.className = "wue-awards-row";
+          row.title = item.caption;
           row.innerHTML = `<span>${String(sequence).padStart(2, "0")}</span><p>${escapeHtml(item.caption)}</p><small>${escapeHtml(item.kind)}</small>`;
-          row.addEventListener("mouseenter", () => setPreview(item));
-          row.addEventListener("focus", () => setPreview(item));
-          row.addEventListener("click", () => setPreview(item));
           rows.appendChild(row);
         });
         list.appendChild(article);
       });
-      setPreview(filtered[0]);
     }
 
     section.querySelectorAll(".wue-awards-tabs button").forEach((button) => {
@@ -125,11 +134,17 @@
     });
 
     function openArchive() {
-      window.WUEArchive?.open("awards", activeGroup);
+      window.WUEArchive?.open("awards");
     }
     previewButton.addEventListener("click", openArchive);
     section.querySelector(".wue-awards-open-archive").addEventListener("click", () => window.WUEArchive?.open("awards"));
     render("全部");
+    setPreview(items[0]);
+    clearInterval(slideTimer);
+    slideTimer = setInterval(() => {
+      slideIndex = (slideIndex + 1) % items.length;
+      setPreview(items[slideIndex]);
+    }, 3600);
     return section;
   }
 

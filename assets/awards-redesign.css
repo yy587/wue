@@ -7,7 +7,7 @@ body.wue-awards-redesign-active #root main { display: none; }
 
 .wue-awards-page {
   min-height: 100svh;
-  padding: calc(1cm + 4rem) 0 6rem;
+  padding: calc(1cm + 4rem) 0 2rem;
   background: #fff;
   color: #121212;
 }
@@ -23,7 +23,7 @@ body.wue-awards-redesign-active #root main { display: none; }
   grid-template-columns: minmax(0, 1fr) 42%;
   gap: clamp(2rem, 7vw, 7rem);
   align-items: end;
-  padding-bottom: 2.2rem;
+  padding-bottom: 1.35rem;
   border-bottom: 1px solid rgb(18 18 18 / 16%);
 }
 
@@ -75,7 +75,7 @@ body.wue-awards-redesign-active #root main { display: none; }
   grid-template-columns: minmax(0, 1fr) 42%;
   gap: clamp(2rem, 7vw, 7rem);
   align-items: start;
-  padding-top: 2rem;
+  padding-top: 1.15rem;
 }
 
 .wue-awards-preview {
@@ -89,7 +89,7 @@ body.wue-awards-redesign-active #root main { display: none; }
 .wue-awards-preview-image {
   display: grid;
   width: 100%;
-  height: min(64svh, 680px);
+  height: min(53svh, 560px);
   place-items: center;
   overflow: hidden;
   background: #fafafa;
@@ -103,8 +103,11 @@ body.wue-awards-redesign-active #root main { display: none; }
   max-height: 100%;
   object-fit: contain;
   object-position: center;
-  transition: opacity 180ms ease;
+  opacity: 1;
+  transition: opacity 240ms ease;
 }
+
+.wue-awards-preview-image img.is-changing { opacity: 0; }
 
 .wue-awards-preview-meta {
   display: grid;
@@ -132,19 +135,27 @@ body.wue-awards-redesign-active #root main { display: none; }
 
 .wue-awards-open-archive small { font-size: 8px; letter-spacing: 0.18em; color: rgb(18 18 18 / 38%); }
 
-.wue-awards-list { min-width: 0; }
+.wue-awards-list {
+  min-width: 0;
+  columns: 2;
+  column-gap: clamp(1rem, 2vw, 1.8rem);
+}
 .wue-awards-year { border-top: 1px solid rgb(18 18 18 / 16%); }
+.wue-awards-year {
+  break-inside: avoid;
+  margin: 0 0 0.8rem;
+}
 .wue-awards-year:first-child { border-top: 0; }
 .wue-awards-year > header {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.3rem 0 1rem;
+  padding: 0.65rem 0 0.45rem;
 }
 
 .wue-awards-year:first-child > header { padding-top: 0; }
-.wue-awards-year h2 { margin: 0; font-size: 24px; font-weight: 300; letter-spacing: -0.03em; }
+.wue-awards-year h2 { margin: 0; font-size: 18px; font-weight: 300; letter-spacing: -0.03em; }
 .wue-awards-year header span { font-size: 8px; letter-spacing: 0.16em; color: rgb(18 18 18 / 34%); }
 
 .wue-awards-row {
@@ -153,18 +164,14 @@ body.wue-awards-redesign-active #root main { display: none; }
   grid-template-columns: 28px minmax(0, 1fr) auto;
   gap: 0.7rem;
   align-items: baseline;
-  padding: 0.55rem 0;
+  padding: 0.24rem 0;
   border-top: 1px solid rgb(18 18 18 / 7%);
   text-align: left;
-  transition: color 150ms ease, padding-left 220ms cubic-bezier(.22,1,.36,1);
+  transition: color 150ms ease;
 }
 
-.wue-awards-row:hover,
-.wue-awards-row:focus-visible { padding-left: 0.35rem; }
 .wue-awards-row > span { font-size: 8px; letter-spacing: 0.12em; color: rgb(18 18 18 / 28%); }
-.wue-awards-row p { margin: 0; font-size: 10px; line-height: 1.65; color: rgb(18 18 18 / 68%); }
-.wue-awards-row:hover p,
-.wue-awards-row:focus-visible p { color: #121212; }
+.wue-awards-row p { overflow: hidden; margin: 0; font-size: 8px; line-height: 1.45; color: rgb(18 18 18 / 68%); text-overflow: ellipsis; white-space: nowrap; }
 .wue-awards-row small { font-size: 8px; letter-spacing: 0.12em; color: rgb(18 18 18 / 32%); }
 
 @media (min-width: 768px) {
@@ -181,4 +188,7 @@ body.wue-awards-redesign-active #root main { display: none; }
   .wue-awards-preview-image { height: 54svh; }
   .wue-awards-preview-meta { grid-template-columns: 88px minmax(0, 1fr); }
   .wue-awards-year h2 { font-size: 20px; }
+  .wue-awards-list { columns: 1; }
+  .wue-awards-row { padding: 0.45rem 0; }
+  .wue-awards-row p { font-size: 9px; }
 }
