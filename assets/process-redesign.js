@@ -87,11 +87,7 @@
         <div class="wue-process-layout">
           <div class="wue-process-visual">
             <p class="wue-process-visual-kicker">WUE DESIGN / PROCESS ARCHIVE</p>
-            <div class="wue-process-collage">
-              <div class="wue-process-poster-type" aria-hidden="true"><span>WUE</span><span>PROCESS</span></div>
-              <i class="wue-process-poster-band is-upper" aria-hidden="true"></i>
-              <i class="wue-process-poster-band is-lower" aria-hidden="true"></i>
-            </div>
+            <div class="wue-process-collage"></div>
           </div>
           <div class="wue-process-original-rail"></div>
         </div>

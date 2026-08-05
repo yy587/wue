@@ -69,46 +69,6 @@ body.wue-process-redesign-active #root main { display: none; }
   isolation: isolate;
 }
 
-.wue-process-poster-type {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  color: #ff3b1f;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(7rem, 13vw, 12rem);
-  font-weight: 900;
-  line-height: 0.72;
-  letter-spacing: -0.095em;
-  pointer-events: none;
-  user-select: none;
-}
-
-.wue-process-poster-type span {
-  position: absolute;
-  display: block;
-  white-space: nowrap;
-}
-
-.wue-process-poster-type span:first-child { top: 1.5%; left: 0; }
-.wue-process-poster-type span:last-child {
-  right: -0.02em;
-  bottom: 0;
-  font-size: 0.72em;
-}
-
-.wue-process-poster-band {
-  position: absolute;
-  z-index: 1;
-  display: block;
-  height: 1px;
-  background: #ff3b1f;
-  pointer-events: none;
-}
-
-.wue-process-poster-band.is-upper { top: 39%; right: 0; width: 50%; }
-.wue-process-poster-band.is-lower { bottom: 31%; left: 0; width: 50%; }
-
 .wue-process-feature {
   position: relative;
   z-index: 2;
@@ -188,8 +148,6 @@ body.wue-process-redesign-active #root main { display: none; }
     overflow: visible !important;
   }
   .wue-process-collage { display: flex; height: auto; min-height: 0; flex-direction: column; gap: 2.6rem; padding-top: 1.5rem; overflow: visible; }
-  .wue-process-poster-type,
-  .wue-process-poster-band { display: none; }
   .wue-process-feature { position: relative; inset: auto !important; width: 92%; height: auto !important; }
   .wue-process-feature:nth-child(even) { width: 78%; align-self: flex-end; }
   .wue-process-feature:nth-child(3n) { width: 86%; align-self: center; }
