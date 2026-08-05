@@ -17,6 +17,21 @@
 main article[data-wue-archive-ready="true"] { cursor: zoom-in; }
 main article[data-wue-archive-ready="true"]:focus-visible { outline: 1px solid rgb(18 18 18 / 45%); outline-offset: 5px; }
 
+@media (min-width: 1024px) {
+  body.wue-process-page main section article > div:first-child {
+    padding: clamp(0.6rem, 1.3vh, 1.05rem) clamp(1rem, 2.2vw, 2.2rem);
+  }
+
+  body.wue-process-page main section article > div:first-child img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 82% !important;
+    max-height: 82% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+}
+
 .wue-archive-modal {
   position: fixed;
   inset: 0;
