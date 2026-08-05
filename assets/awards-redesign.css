@@ -87,20 +87,22 @@ body.wue-awards-redesign-active #root main { display: none; }
 }
 
 .wue-awards-preview-image {
-  display: grid;
+  position: relative;
   width: 100%;
-  height: min(53svh, 560px);
-  place-items: center;
+  height: min(48svh, 500px);
   overflow: hidden;
   background: #fafafa;
   cursor: zoom-in;
 }
 
 .wue-awards-preview-image img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 88%;
+  max-height: 88%;
   object-fit: contain;
   object-position: center;
   opacity: 1;
@@ -185,7 +187,11 @@ body.wue-awards-redesign-active #root main { display: none; }
   .wue-awards-intro { align-items: start; }
   .wue-awards-intro h1 { font-size: 2.4rem; }
   .wue-awards-preview { position: relative; top: auto; }
-  .wue-awards-preview-image { height: 54svh; }
+  .wue-awards-preview-image { height: min(48svh, 440px); }
+  .wue-awards-preview-image img {
+    max-width: 90%;
+    max-height: 90%;
+  }
   .wue-awards-preview-meta { grid-template-columns: 88px minmax(0, 1fr); }
   .wue-awards-year h2 { font-size: 20px; }
   .wue-awards-list { columns: 1; }
