@@ -3,15 +3,15 @@
   const siteRoot = new URL("../", scriptUrl);
   const dataUrl = new URL("archive-gallery-data.json", scriptUrl);
   const featuredIds = [
-    "process-002",
-    "process-005",
-    "process-007",
-    "process-010",
-    "process-019",
+    "process-001",
+    "process-008",
+    "process-009",
+    "process-018",
+    "process-027",
+    "process-030",
     "process-033",
-    "process-037",
-    "process-040",
-    "process-043",
+    "process-038",
+    "process-041",
   ];
   const titles = [
     "初次沟通",
@@ -97,9 +97,12 @@
     featured.forEach((item, index) => {
       const figure = document.createElement("figure");
       figure.className = `wue-process-feature is-${String(index + 1).padStart(2, "0")}`;
-      const image = document.createElement("div");
+      const image = document.createElement("button");
+      image.type = "button";
       image.className = "wue-process-feature-image";
+      image.setAttribute("aria-label", `打开${titles[index]}完整资料`);
       image.innerHTML = `<img src="${assetUrl(item)}" alt="${item.caption}" width="${item.width}" height="${item.height}" loading="${index < 3 ? "eager" : "lazy"}" decoding="async">`;
+      image.addEventListener("click", () => window.WUEArchive?.open("process", item.group));
       const caption = document.createElement("figcaption");
       caption.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><p>${titles[index]}</p>`;
       figure.append(image, caption);
