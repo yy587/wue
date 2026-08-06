@@ -1,0 +1,11 @@
+.wue-awards-preview-image img {
+  max-width: 98%;
+  max-height: 98%;
+}
+
+@media (max-width: 800px) {
+  .wue-awards-preview-image img {
+    max-width: 96%;
+    max-height: 96%;
+  }
+}
