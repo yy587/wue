@@ -1,0 +1,17 @@
+.wue-awards-preview-image {
+  background: transparent;
+  cursor: default;
+}
+
+.wue-awards-preview-meta {
+  box-sizing: border-box;
+  padding-left: var(--wue-preview-image-left, 0px);
+  padding-right: calc(100% - var(--wue-preview-image-right, 100%));
+}
+
+@media (max-width: 800px) {
+  .wue-awards-preview-meta {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
