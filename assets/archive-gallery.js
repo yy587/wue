@@ -181,7 +181,8 @@
   function mountTrigger() {
     mountQueued = false;
     const kind = currentKind();
-    document.body.classList.toggle("wue-process-page", kind === "process");
+    document.body.classList.remove("wue-process-page");
+    if (kind === "process") return;
     if (!kind) return;
     const aside = document.querySelector("main aside");
     if (!aside || aside.querySelector(".wue-archive-trigger")) return;
