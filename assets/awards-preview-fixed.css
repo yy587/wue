@@ -1,0 +1,27 @@
+.wue-awards-preview-image img {
+  max-width: 98%;
+  max-height: 98%;
+}
+
+@media (min-width: 801px) {
+  body.wue-awards-redesign-active {
+    overflow: hidden;
+  }
+
+  .wue-awards-page {
+    height: 100svh;
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
+  .wue-awards-preview-image {
+    height: min(60svh, 620px);
+  }
+}
+
+@media (max-width: 800px) {
+  .wue-awards-preview-image img {
+    max-width: 96%;
+    max-height: 96%;
+  }
+}
