@@ -33,7 +33,7 @@ body.wue-process-page.wue-process-landscape main section article > .wue-process-
 
 @media (min-width: 1024px) {
   body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article) {
-    height: calc(100svh - 1cm - 5rem);
+    height: calc(100svh - 1cm - 10rem);
     grid-template-rows: repeat(3, minmax(0, 1fr));
   }
 
