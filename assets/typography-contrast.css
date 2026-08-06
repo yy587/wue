@@ -1,0 +1,50 @@
+:root {
+  --foreground: #111;
+  --muted-foreground: #4f4f4f;
+}
+
+body {
+  color: #111;
+}
+
+[class*="text-muted-foreground"] {
+  color: rgb(17 17 17 / 70%) !important;
+}
+
+[class*="text-foreground/"] {
+  color: rgb(17 17 17 / 82%) !important;
+}
+
+.wue-archive-trigger small,
+.wue-archive-header p,
+.wue-archive-count,
+.wue-archive-filters button,
+.wue-archive-preview-nav {
+  color: rgb(17 17 17 / 68%);
+}
+
+.wue-archive-item-meta,
+.wue-archive-preview figcaption {
+  color: rgb(17 17 17 / 80%);
+}
+
+.wue-archive-item-meta small,
+.wue-archive-preview figcaption span {
+  color: rgb(17 17 17 / 62%);
+}
+
+.wue-awards-kicker,
+.wue-awards-intro,
+.wue-awards-tabs button,
+.wue-awards-preview-meta span,
+.wue-awards-open-archive small,
+.wue-awards-year header span,
+.wue-awards-row > span,
+.wue-awards-row small {
+  color: rgb(17 17 17 / 62%);
+}
+
+.wue-awards-preview-meta p,
+.wue-awards-row p {
+  color: rgb(17 17 17 / 82%);
+}
