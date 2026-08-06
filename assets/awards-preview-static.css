@@ -1,6 +1,6 @@
 .wue-awards-preview-image {
   background: transparent;
-  cursor: default;
+  cursor: inherit;
 }
 
 .wue-awards-preview-meta {
