@@ -3,15 +3,15 @@
   const siteRoot = new URL("../", scriptUrl);
   const dataUrl = new URL("archive-gallery-data.json", scriptUrl);
   const featuredIds = [
-    "process-001",
+    "process-002",
+    "process-005",
     "process-007",
-    "process-009",
-    "process-017",
-    "process-027",
-    "process-030",
+    "process-010",
+    "process-019",
     "process-033",
     "process-037",
-    "process-041",
+    "process-040",
+    "process-043",
   ];
   const titles = [
     "初次沟通",
@@ -87,11 +87,7 @@
         <div class="wue-process-layout">
           <div class="wue-process-visual">
             <p class="wue-process-visual-kicker">WUE DESIGN / PROCESS ARCHIVE</p>
-            <div class="wue-process-collage">
-              <div class="wue-process-reference-type" aria-hidden="true"><span>WUE</span><span>PROCESS</span></div>
-              <i class="wue-process-reference-band is-middle" aria-hidden="true"></i>
-              <i class="wue-process-reference-band is-lower" aria-hidden="true"></i>
-            </div>
+            <div class="wue-process-collage"></div>
           </div>
           <div class="wue-process-original-rail"></div>
         </div>
