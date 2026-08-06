@@ -14,8 +14,21 @@ body.wue-process-landscape .wue-process-landscape-frame > img {
   height: 100% !important;
   max-width: none !important;
   max-height: none !important;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+}
+
+body.wue-process-page.wue-process-landscape main section article > .wue-process-landscape-frame {
+  padding: 0;
+}
+
+body.wue-process-page.wue-process-landscape main section article > .wue-process-landscape-frame > img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 body.wue-process-landscape .wue-process-landscape-frame.is-collage {
