@@ -181,18 +181,8 @@
   function mountTrigger() {
     mountQueued = false;
     const kind = currentKind();
-    document.body.classList.remove("wue-process-page");
-    if (kind === "process") return;
+    document.body.classList.toggle("wue-process-page", kind === "process");
     if (!kind) return;
-    const aside = document.querySelector("main aside");
-    if (!aside || aside.querySelector(".wue-archive-trigger")) return;
-    const content = aside.querySelector("div.grid") || aside;
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "wue-archive-trigger";
-    button.innerHTML = `<span>${kind === "process" ? "浏览全部流程资料" : "浏览全部获奖与媒体资料"}</span><small>${kind === "process" ? "44" : "46"} ITEMS&nbsp; →</small>`;
-    button.addEventListener("click", () => openArchive(kind));
-    content.appendChild(button);
 
     if (kind === "process") {
       document.querySelectorAll("main article").forEach((article, index) => {
@@ -209,7 +199,19 @@
           }
         });
       });
+      return;
     }
+
+    const aside = document.querySelector("main aside");
+    if (!aside || aside.querySelector(".wue-archive-trigger")) return;
+    const content = aside.querySelector("div.grid") || aside;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "wue-archive-trigger";
+    button.innerHTML = `<span>${kind === "process" ? "浏览全部流程资料" : "浏览全部获奖与媒体资料"}</span><small>${kind === "process" ? "44" : "46"} ITEMS&nbsp; →</small>`;
+    button.addEventListener("click", () => openArchive(kind));
+    content.appendChild(button);
+
   }
 
   function queueMount() {
