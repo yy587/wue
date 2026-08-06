@@ -1,5 +1,5 @@
 body.wue-process-landscape main article > .wue-process-landscape-frame {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   display: grid;
   width: 100%;
   height: auto !important;
@@ -31,6 +31,6 @@ body.wue-process-landscape .wue-process-landscape-frame.is-collage > img {
 
 @media (max-width: 767px) {
   body.wue-process-landscape main article > .wue-process-landscape-frame {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 9;
   }
 }
