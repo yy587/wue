@@ -31,6 +31,18 @@ body.wue-process-page.wue-process-landscape main section article > .wue-process-
   object-position: center !important;
 }
 
+@media (min-width: 1024px) {
+  body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article) {
+    height: calc(100svh - 1cm - 5rem);
+    grid-template-rows: repeat(3, minmax(0, 1fr));
+  }
+
+  body.wue-process-page.wue-process-landscape main section article > .wue-process-landscape-frame {
+    height: 100% !important;
+    aspect-ratio: auto;
+  }
+}
+
 body.wue-process-landscape .wue-process-landscape-frame.is-collage {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(2, minmax(0, 1fr));
