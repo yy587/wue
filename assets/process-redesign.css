@@ -68,52 +68,48 @@ body.wue-process-redesign-active #root main { display: none; }
 .wue-process-feature {
   position: absolute;
   z-index: 2;
-  display: grid;
+  display: block;
   min-width: 0;
   min-height: 0;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 0.3rem;
   margin: 0;
 }
 
-.wue-process-feature.is-01 { top: 1%; left: 2%; width: 28%; height: 31%; z-index: 2; }
-.wue-process-feature.is-02 { top: 2%; left: 27%; width: 27%; height: 36%; z-index: 4; }
-.wue-process-feature.is-03 { top: 7%; right: 0; width: 49%; height: 30%; z-index: 3; }
-.wue-process-feature.is-04 { top: 31%; left: 1%; width: 42%; height: 30%; z-index: 3; }
-.wue-process-feature.is-05 { top: 34%; left: 40%; width: 31%; height: 26%; z-index: 4; }
-.wue-process-feature.is-06 { top: 35%; right: 0; width: 31%; height: 25%; z-index: 2; }
-.wue-process-feature.is-07 { bottom: 1%; left: 3%; width: 30%; height: 35%; z-index: 2; }
-.wue-process-feature.is-08 { bottom: 1%; left: 30%; width: 29%; height: 36%; z-index: 4; }
-.wue-process-feature.is-09 { right: 0; bottom: 3%; width: 45%; height: 33%; z-index: 3; }
+.wue-process-feature.is-01 { top: 1%; left: 4%; width: 24%; z-index: 2; }
+.wue-process-feature.is-02 { top: 2%; left: 27%; width: 21%; z-index: 4; }
+.wue-process-feature.is-03 { top: 8%; right: 0; width: 46%; z-index: 3; }
+.wue-process-feature.is-04 { top: 34%; left: 0; width: 40%; z-index: 3; }
+.wue-process-feature.is-05 { top: 39%; left: 38%; width: 30%; z-index: 4; }
+.wue-process-feature.is-06 { top: 40%; right: 0; width: 30%; z-index: 2; }
+.wue-process-feature.is-07 { bottom: 0; left: 5%; width: 22%; z-index: 2; }
+.wue-process-feature.is-08 { bottom: 0; left: 29%; width: 22%; z-index: 4; }
+.wue-process-feature.is-09 { right: 0; bottom: 2%; width: 45%; z-index: 3; }
 
 .wue-process-feature-image {
-  position: relative;
-  display: grid;
+  position: static;
+  display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   min-height: 0;
-  place-items: center;
-  overflow: hidden;
+  overflow: visible;
   cursor: default;
 }
 
 .wue-process-feature-image img {
   display: block;
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
-  max-height: 100%;
+  max-height: none;
   object-fit: contain;
   object-position: center;
   pointer-events: none;
 }
 
 @media (min-width: 901px) {
-  .wue-process-feature-image { position: relative; }
+  .wue-process-feature-image { position: static; }
   .wue-process-feature-image img {
-    position: absolute;
-    inset: 0;
-    margin: auto;
+    position: static;
+    margin: 0;
   }
 }
 
