@@ -13,6 +13,17 @@
     "08 采买阶段",
     "09 收尾阶段",
   ];
+  const processGroupsEn = [
+    "01 Initial Contact",
+    "02 Pre-design",
+    "03 Phase 1 · Concept Design",
+    "04 Phase 2 · Schematic Design",
+    "05 Phase 3 · Construction Drawings",
+    "06 Budget Planning & FF&E List",
+    "07 Site Delivery",
+    "08 Procurement",
+    "09 Final Handover",
+  ];
 
   let archiveData;
   let archiveModal;
@@ -21,6 +32,32 @@
   let selectedIndex = -1;
   let previousOverflow = "";
   let mountQueued = false;
+  let archiveKind = "";
+  let archiveLanguage = "zh";
+
+  function getLanguage() {
+    const awardsLink = [...document.querySelectorAll("#site-navigation a")]
+      .find((link) => link.getAttribute("href")?.replace(/\/$/, "").endsWith("/awards"));
+    return awardsLink?.textContent.trim() === "Awards" ? "en" : "zh";
+  }
+
+  function localizedCaption(item) {
+    if (archiveKind === "awards") {
+      return window.WUEAwardsI18n?.itemCaption(item, archiveLanguage) || item.caption;
+    }
+    return item.caption;
+  }
+
+  function localizedGroup(item) {
+    if (archiveKind === "awards") {
+      return window.WUEAwardsI18n?.itemGroup(item, archiveLanguage) || item.group;
+    }
+    if (archiveLanguage === "en") {
+      const index = processGroups.indexOf(item.group);
+      return index >= 0 ? processGroupsEn[index] : item.group;
+    }
+    return item.group;
+  }
 
   function currentKind() {
     const pathname = window.location.pathname.replace(/\/$/, "");
@@ -70,15 +107,15 @@
     preview.className = "wue-archive-preview";
     preview.setAttribute("role", "dialog");
     preview.setAttribute("aria-modal", "true");
-    preview.setAttribute("aria-label", item.caption);
+    preview.setAttribute("aria-label", localizedCaption(item));
     preview.innerHTML = `
-      <button class="wue-archive-preview-close" type="button" aria-label="关闭预览">×</button>
-      <button class="wue-archive-preview-nav is-prev" type="button" aria-label="上一张">←</button>
+      <button class="wue-archive-preview-close" type="button" aria-label="${archiveLanguage === "en" ? "Close preview" : "关闭预览"}">×</button>
+      <button class="wue-archive-preview-nav is-prev" type="button" aria-label="${archiveLanguage === "en" ? "Previous image" : "上一张"}">←</button>
       <figure>
-        <img src="${assetUrl(item)}" alt="${escapeHtml(item.caption)}" width="${item.width}" height="${item.height}">
-        <figcaption><span>${escapeHtml(item.group)}</span>${escapeHtml(item.caption)}</figcaption>
+        <img src="${assetUrl(item)}" alt="${escapeHtml(localizedCaption(item))}" width="${item.width}" height="${item.height}">
+        <figcaption><span>${escapeHtml(localizedGroup(item))}</span>${escapeHtml(localizedCaption(item))}</figcaption>
       </figure>
-      <button class="wue-archive-preview-nav is-next" type="button" aria-label="下一张">→</button>
+      <button class="wue-archive-preview-nav is-next" type="button" aria-label="${archiveLanguage === "en" ? "Next image" : "下一张"}">→</button>
     `;
     preview.addEventListener("click", (event) => {
       if (event.target === preview) closePreview();
@@ -101,7 +138,7 @@
 
   function renderItems(items, grid, count) {
     visibleItems = items;
-    count.textContent = `${items.length} 项资料`;
+    count.textContent = archiveLanguage === "en" ? `${items.length} ITEMS` : `${items.length} 项资料`;
     grid.innerHTML = "";
     const fragment = document.createDocumentFragment();
     items.forEach((item, index) => {
@@ -110,9 +147,9 @@
       button.className = "wue-archive-item";
       button.innerHTML = `
         <span class="wue-archive-thumb">
-          <img src="${assetUrl(item)}" alt="${escapeHtml(item.caption)}" loading="lazy" decoding="async" width="${item.width}" height="${item.height}">
+          <img src="${assetUrl(item)}" alt="${escapeHtml(localizedCaption(item))}" loading="lazy" decoding="async" width="${item.width}" height="${item.height}">
         </span>
-        <span class="wue-archive-item-meta"><small>${escapeHtml(item.group)}</small>${escapeHtml(item.caption)}</span>
+        <span class="wue-archive-item-meta"><small>${escapeHtml(localizedGroup(item))}</small>${escapeHtml(localizedCaption(item))}</span>
       `;
       button.addEventListener("click", () => openPreview(index));
       fragment.appendChild(button);
@@ -125,7 +162,11 @@
     const data = await loadArchive();
     const allItems = data[kind];
     const groups = [...new Set(allItems.map((item) => item.group))];
-    const title = kind === "process" ? "设计流程资料档案" : "奖项与媒体资料档案";
+    archiveKind = kind;
+    archiveLanguage = getLanguage();
+    const title = archiveLanguage === "en"
+      ? (kind === "process" ? "Design Process Archive" : "Awards & Media Archive")
+      : (kind === "process" ? "设计流程资料档案" : "奖项与媒体资料档案");
 
     previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -138,9 +179,9 @@
       <div class="wue-archive-shell">
         <header class="wue-archive-header">
           <div><p>WUE DESIGN / ARCHIVE</p><h2>${title}</h2></div>
-          <div class="wue-archive-header-actions"><span class="wue-archive-count"></span><button type="button" aria-label="关闭资料档案">×</button></div>
+          <div class="wue-archive-header-actions"><span class="wue-archive-count"></span><button type="button" aria-label="${archiveLanguage === "en" ? "Close archive" : "关闭资料档案"}">×</button></div>
         </header>
-        <nav class="wue-archive-filters" aria-label="资料分类"></nav>
+        <nav class="wue-archive-filters" aria-label="${archiveLanguage === "en" ? "Archive categories" : "资料分类"}"></nav>
         <div class="wue-archive-grid"></div>
       </div>
     `;
@@ -165,7 +206,12 @@
       const button = document.createElement("button");
       button.type = "button";
       button.dataset.group = group;
-      button.textContent = group;
+      if (archiveLanguage === "en") {
+        if (group === "全部") button.textContent = "All";
+        else if (kind === "process") button.textContent = processGroupsEn[processGroups.indexOf(group)] || group;
+        else if (group === "媒体报道") button.textContent = "Media Coverage";
+        else button.textContent = group;
+      } else button.textContent = group;
       button.addEventListener("click", () => selectGroup(group));
       filters.appendChild(button);
     });

@@ -3,3 +3,12 @@ header.fixed {
   isolation: isolate;
   background: #fff;
 }
+
+/* Keep the language switch fully visible beside the menu at every width. */
+#site-navigation nav > button:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 2;
+  background: #fff;
+  box-shadow: -12px 0 10px #fff;
+}
