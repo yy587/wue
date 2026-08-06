@@ -1,0 +1,203 @@
+body.wue-awards-redesign-active #root {
+  min-height: 0 !important;
+  height: 0;
+}
+
+body.wue-awards-redesign-active #root main { display: none; }
+
+.wue-awards-page {
+  min-height: 100svh;
+  padding: calc(1cm + 4rem) 0 2rem;
+  background: #fff;
+  color: #121212;
+}
+
+.wue-awards-container {
+  width: calc(100% - 1.5rem);
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.wue-awards-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42%;
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: end;
+  padding-bottom: 1.35rem;
+  border-bottom: 1px solid rgb(18 18 18 / 16%);
+}
+
+.wue-awards-intro > div:first-child > p {
+  margin: 0 0 1.05rem;
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  color: rgb(18 18 18 / 58%);
+}
+
+.wue-awards-intro h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4.6vw, 4.8rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.wue-awards-intro-copy {
+  display: grid;
+  gap: 1.25rem;
+  align-content: end;
+}
+
+.wue-awards-intro-copy > p {
+  max-width: 36ch;
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.9;
+  color: rgb(18 18 18 / 58%);
+}
+
+.wue-awards-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.wue-awards-tabs span { color: rgb(18 18 18 / 24%); }
+.wue-awards-tabs button { color: rgb(18 18 18 / 40%); transition: color 160ms ease; }
+.wue-awards-tabs button:hover,
+.wue-awards-tabs button.is-active { color: #121212; }
+
+.wue-awards-archive {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42%;
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+  padding-top: 1.15rem;
+}
+
+.wue-awards-preview {
+  position: sticky;
+  top: 5.6rem;
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.wue-awards-preview-image {
+  position: relative;
+  width: 100%;
+  height: min(48svh, 500px);
+  overflow: hidden;
+  background: #fafafa;
+  cursor: zoom-in;
+}
+
+.wue-awards-preview-image img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: auto;
+  height: auto;
+  max-width: 88%;
+  max-height: 88%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 1;
+  transition: opacity 240ms ease;
+}
+
+.wue-awards-preview-image img.is-changing { opacity: 0; }
+
+.wue-awards-preview-meta {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 1rem;
+  min-height: 2.6rem;
+  padding-top: 0.15rem;
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+.wue-awards-preview-meta span { letter-spacing: 0.12em; color: rgb(18 18 18 / 38%); }
+.wue-awards-preview-meta p { margin: 0; color: rgb(18 18 18 / 68%); }
+.wue-awards-open-archive {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgb(18 18 18 / 12%);
+  border-bottom: 1px solid rgb(18 18 18 / 12%);
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.wue-awards-open-archive small { font-size: 8px; letter-spacing: 0.18em; color: rgb(18 18 18 / 38%); }
+
+.wue-awards-list {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 1.8rem);
+  align-items: start;
+}
+.wue-awards-list-column { min-width: 0; }
+.wue-awards-year { border-top: 1px solid rgb(18 18 18 / 16%); }
+.wue-awards-year {
+  break-inside: avoid;
+  margin: 0 0 0.8rem;
+}
+.wue-awards-year:first-child { border-top: 0; }
+.wue-awards-year > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 0 0.45rem;
+}
+
+.wue-awards-year:first-child > header { padding-top: 0; }
+.wue-awards-year h2 { margin: 0; font-size: 18px; font-weight: 300; letter-spacing: -0.03em; }
+.wue-awards-year header span { font-size: 8px; letter-spacing: 0.16em; color: rgb(18 18 18 / 34%); }
+
+.wue-awards-row {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: 0.7rem;
+  align-items: baseline;
+  padding: 0.24rem 0;
+  border-top: 1px solid rgb(18 18 18 / 7%);
+  text-align: left;
+  transition: color 150ms ease;
+}
+
+.wue-awards-row > span { font-size: 8px; letter-spacing: 0.12em; color: rgb(18 18 18 / 28%); }
+.wue-awards-row p { overflow: hidden; margin: 0; font-size: 8px; line-height: 1.45; color: rgb(18 18 18 / 68%); text-overflow: ellipsis; white-space: nowrap; }
+.wue-awards-row small { font-size: 8px; letter-spacing: 0.12em; color: rgb(18 18 18 / 32%); }
+
+@media (min-width: 768px) {
+  .wue-awards-container { width: calc(100% - 3rem); }
+}
+
+@media (max-width: 800px) {
+  .wue-awards-page { padding-top: calc(1cm + 3.5rem); }
+  .wue-awards-intro,
+  .wue-awards-archive { grid-template-columns: 1fr; gap: 1.5rem; }
+  .wue-awards-intro { align-items: start; }
+  .wue-awards-intro h1 { font-size: 2.4rem; }
+  .wue-awards-preview { position: relative; top: auto; }
+  .wue-awards-preview-image { height: min(48svh, 440px); }
+  .wue-awards-preview-image img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  .wue-awards-preview-meta { grid-template-columns: 88px minmax(0, 1fr); }
+  .wue-awards-year h2 { font-size: 20px; }
+  .wue-awards-list { grid-template-columns: 1fr; }
+  .wue-awards-row { padding: 0.45rem 0; }
+  .wue-awards-row p { font-size: 9px; }
+}
