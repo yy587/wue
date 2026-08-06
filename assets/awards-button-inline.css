@@ -1,0 +1,21 @@
+.wue-awards-preview-meta {
+  position: relative;
+}
+
+.wue-awards-preview-meta .wue-awards-open-archive {
+  position: absolute;
+  top: 0.15rem;
+  right: calc(100% - var(--wue-preview-image-right, 100%));
+  display: block;
+  width: max-content;
+  padding: 0;
+  border: 0;
+  line-height: 1.55;
+  background: transparent;
+}
+
+@media (max-width: 800px) {
+  .wue-awards-preview-meta .wue-awards-open-archive {
+    right: 0;
+  }
+}
