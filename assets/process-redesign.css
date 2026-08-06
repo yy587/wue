@@ -58,12 +58,54 @@ body.wue-process-redesign-active #root main { display: none; }
 
 .wue-process-collage {
   position: relative;
+  width: min(74%, calc((100svh - 8.5rem) * 0.79));
   height: min(770px, calc(100svh - 8.5rem));
   min-height: 570px;
-  margin-top: 0.75rem;
+  margin: 0.75rem auto 0;
   overflow: hidden;
   isolation: isolate;
 }
+
+.wue-process-reference-type {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  color: #ff351d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(7rem, 12.5vw, 11.5rem);
+  font-weight: 900;
+  line-height: 0.72;
+  letter-spacing: -0.1em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.wue-process-reference-type span {
+  position: absolute;
+  display: block;
+  white-space: nowrap;
+}
+
+.wue-process-reference-type span:first-child { top: 1%; left: 7%; }
+.wue-process-reference-type span:last-child {
+  bottom: 0;
+  left: 5%;
+  font-size: 0.62em;
+}
+
+.wue-process-reference-band {
+  position: absolute;
+  z-index: 8;
+  display: block;
+  height: 9%;
+  background: rgb(255 53 29 / 72%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.wue-process-reference-band.is-middle { top: 40%; right: 0; width: 51%; }
+.wue-process-reference-band.is-lower { bottom: 15%; left: 8%; width: 45%; }
 
 .wue-process-feature {
   position: absolute;
@@ -74,15 +116,15 @@ body.wue-process-redesign-active #root main { display: none; }
   margin: 0;
 }
 
-.wue-process-feature.is-01 { top: 1%; left: 4%; width: 24%; z-index: 2; }
-.wue-process-feature.is-02 { top: 2%; left: 27%; width: 21%; z-index: 4; }
-.wue-process-feature.is-03 { top: 8%; right: 0; width: 46%; z-index: 3; }
-.wue-process-feature.is-04 { top: 34%; left: 0; width: 40%; z-index: 3; }
-.wue-process-feature.is-05 { top: 39%; left: 38%; width: 30%; z-index: 4; }
-.wue-process-feature.is-06 { top: 40%; right: 0; width: 30%; z-index: 2; }
-.wue-process-feature.is-07 { bottom: 0; left: 5%; width: 22%; z-index: 2; }
-.wue-process-feature.is-08 { bottom: 0; left: 29%; width: 22%; z-index: 4; }
-.wue-process-feature.is-09 { right: 0; bottom: 2%; width: 45%; z-index: 3; }
+.wue-process-feature.is-01 { top: 42%; left: 50%; width: 25%; z-index: 2; }
+.wue-process-feature.is-02 { top: 10%; left: 25%; width: 25%; z-index: 3; }
+.wue-process-feature.is-03 { top: 15%; right: 0; width: 49%; z-index: 2; }
+.wue-process-feature.is-04 { top: 37%; left: 0; width: 50%; z-index: 3; }
+.wue-process-feature.is-05 { top: 64%; left: 14%; width: 36%; z-index: 4; }
+.wue-process-feature.is-06 { top: 65%; right: 0; width: 25%; z-index: 2; }
+.wue-process-feature.is-07 { top: 42%; right: 0; width: 25%; z-index: 3; }
+.wue-process-feature.is-08 { top: 65%; left: 50%; width: 25%; z-index: 3; }
+.wue-process-feature.is-09 { right: 9%; bottom: 4%; width: 25%; z-index: 5; }
 
 .wue-process-feature-image {
   position: static;
@@ -102,6 +144,7 @@ body.wue-process-redesign-active #root main { display: none; }
   max-height: none;
   object-fit: contain;
   object-position: center;
+  filter: grayscale(1) contrast(0.94);
   pointer-events: none;
 }
 
@@ -140,6 +183,9 @@ body.wue-process-redesign-active #root main { display: none; }
     overflow: visible !important;
   }
   .wue-process-collage { display: flex; height: auto; min-height: 0; flex-direction: column; gap: 2.6rem; padding-top: 1.5rem; overflow: visible; }
+  .wue-process-collage { width: 100%; }
+  .wue-process-reference-type,
+  .wue-process-reference-band { display: none; }
   .wue-process-feature,
   .wue-process-feature:nth-child(even),
   .wue-process-feature:nth-child(3n) {
@@ -151,5 +197,6 @@ body.wue-process-redesign-active #root main { display: none; }
   }
   .wue-process-feature-image { height: auto; max-height: 64svh; }
   .wue-process-feature-image img { width: 100%; max-height: 64svh; }
+  .wue-process-feature-image img { filter: none; }
   .wue-process-feature figcaption { display: grid; }
 }
