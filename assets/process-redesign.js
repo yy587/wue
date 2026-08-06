@@ -97,15 +97,12 @@
     featured.forEach((item, index) => {
       const figure = document.createElement("figure");
       figure.className = `wue-process-feature is-${String(index + 1).padStart(2, "0")}`;
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "wue-process-feature-image";
-      button.setAttribute("aria-label", `浏览${titles[index]}全部资料`);
-      button.innerHTML = `<img src="${assetUrl(item)}" alt="${item.caption}" width="${item.width}" height="${item.height}" loading="${index < 3 ? "eager" : "lazy"}" decoding="async">`;
-      button.addEventListener("click", () => window.WUEArchive?.open("process", item.group));
+      const image = document.createElement("div");
+      image.className = "wue-process-feature-image";
+      image.innerHTML = `<img src="${assetUrl(item)}" alt="${item.caption}" width="${item.width}" height="${item.height}" loading="${index < 3 ? "eager" : "lazy"}" decoding="async">`;
       const caption = document.createElement("figcaption");
-      caption.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><p>${titles[index]}</p><small>VIEW ARCHIVE</small>`;
-      figure.append(button, caption);
+      caption.innerHTML = `<span>${String(index + 1).padStart(2, "0")}</span><p>${titles[index]}</p>`;
+      figure.append(image, caption);
       collage.appendChild(figure);
     });
     const rail = section.querySelector(".wue-process-original-rail");
