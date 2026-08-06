@@ -1,0 +1,10 @@
+@media (min-width: 801px) {
+  .wue-awards-preview-meta {
+    position: static;
+  }
+
+  .wue-awards-preview-meta .wue-awards-open-archive {
+    top: -1.25rem;
+    right: calc(100% - var(--wue-preview-image-right, 100%));
+  }
+}
