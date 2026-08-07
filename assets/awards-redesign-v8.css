@@ -97,7 +97,7 @@ body.wue-awards-redesign-active #root main { display: none; }
 
 .wue-awards-split-page .wue-awards-list {
   display: block;
-  padding: 1rem 0 3rem;
+  padding: 1rem 0 3.5rem;
 }
 
 .wue-awards-split-page .wue-awards-year {
@@ -138,7 +138,7 @@ body.wue-awards-redesign-active #root main { display: none; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.25rem, 2.6vw, 2.6rem) clamp(1rem, 2vw, 2rem);
   align-content: start;
-  padding: 0 0 4rem;
+  padding: 0 0 4.75rem;
 }
 
 .wue-awards-card {
