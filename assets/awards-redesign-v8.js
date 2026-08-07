@@ -46,6 +46,41 @@
     trends: "https://www.trendsgroup.com.cn/"
   };
 
+  const consolidationGroups = [
+    { ids: ["award-032", "award-033", "award-034", "award-035", "award-036"], cover: "award-034", caption: "2025 ELLEDECO 家居廊 The A-List Young Talents" },
+    { ids: ["award-018", "award-019", "award-020"], cover: "award-019", caption: "2024 ELLEDECO 家居廊 中国室内建筑设计大奖｜横窗之家" },
+    { ids: ["award-021"], caption: "2024 ELLEDECO 家居廊 中国室内建筑设计年鉴" },
+    { ids: ["award-022"], caption: "2024 IDEAT理想家 非凡设计大奖" },
+    { ids: ["award-023", "award-024"], cover: "award-023", caption: "2024 PChouse 私宅设计大奖｜年度小户型空间设计奖、新势力榜" },
+    { ids: ["award-025"], caption: "2024 一条｜鸢尾花之家 10W+阅读量报道" },
+    { ids: ["award-026", "award-027", "award-028", "award-029", "award-030", "award-031"], cover: "award-026", caption: "2024 安邸 AD100Young" },
+    { ids: ["award-001", "award-002"], cover: "award-001", caption: "2023 ELLEDECO 家居廊 NO.222" },
+    { ids: ["award-003", "award-004", "award-005"], cover: "award-003", caption: "2023 ELLEDECO 家居廊 NO.237 二十周年刊" },
+    { ids: ["award-006", "award-007", "award-008", "award-009", "award-010"], cover: "award-009", caption: "2023 ELLEDECO 家居廊 中国室内建筑设计大奖｜沙沙冷萃园" },
+    { ids: ["award-011", "award-012", "award-013", "award-014"], cover: "award-013", caption: "2023 ELLEDECO 家居廊 中国室内建筑设计大奖｜自造宅" },
+    { ids: ["award-015"], caption: "2023 ELLEDECO 家居廊 中国室内建筑设计年鉴" },
+    { ids: ["award-016", "award-017"], cover: "award-016", caption: "2023 TRENDSHOME 时尚家居｜自造宅" },
+    { ids: ["award-037"], caption: "有方｜自造宅：非传统性的流动空间" },
+    { ids: ["award-038", "award-039", "award-040", "award-041", "award-042", "award-045"], cover: "award-038", caption: "印际｜自造宅：非传统性的流动空间" },
+    { ids: ["award-043"], caption: "ArchDaily｜自造宅，非传统性的流动空间" },
+    { ids: ["award-044"], caption: "Dezeen｜开放而具流动性的工作室兼住宅" },
+    { ids: ["award-046"], caption: "gooood谷德设计网｜横窗之家，由“窗”至“居”" }
+  ];
+
+  function consolidateItems(items) {
+    const byId = new Map(items.map((item) => [item.id, item]));
+    return consolidationGroups.map((group) => {
+      const members = group.ids.map((id) => byId.get(id)).filter(Boolean);
+      const representative = byId.get(group.cover || group.ids[0]) || members[0];
+      return {
+        ...representative,
+        id: group.ids.join("+"),
+        caption: group.caption,
+        sourceCount: members.length
+      };
+    }).filter((item) => item.asset);
+  }
+
   function getLanguage() {
     const awardsLink = [...document.querySelectorAll("#site-navigation a")]
       .find((link) => link.getAttribute("href")?.replace(/\/$/, "").endsWith("/awards"));
@@ -93,6 +128,8 @@
       .replaceAll("有方", "Youfang")
       .replaceAll("印际", "YinjiSpace")
       .replaceAll("谷德设计网", "")
+      .replaceAll("｜", " / ")
+      .replaceAll("、", ", ")
       .replace(/\s+/g, " ")
       .trim();
   }
@@ -276,7 +313,7 @@
     const data = await loadData();
     if (!isAwardsPage() || document.getElementById("wue-awards-redesign")) return;
     document.body.classList.add("wue-awards-redesign-active");
-    document.body.appendChild(makePage(data.awards, getLanguage()));
+    document.body.appendChild(makePage(consolidateItems(data.awards), getLanguage()));
   }
 
   function scheduleMount() {
