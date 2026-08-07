@@ -14,9 +14,6 @@
 .wue-archive-trigger span { font-size: 11px; letter-spacing: 0.08em; }
 .wue-archive-trigger small { font-size: 9px; letter-spacing: 0.2em; color: rgb(18 18 18 / 45%); }
 
-main article[data-wue-archive-ready="true"] { cursor: zoom-in; }
-main article[data-wue-archive-ready="true"]:focus-visible { outline: 1px solid rgb(18 18 18 / 45%); outline-offset: 5px; }
-
 @media (min-width: 1024px) {
   body.wue-process-page main section article > div:first-child {
     padding: clamp(0.6rem, 1.3vh, 1.05rem) clamp(1rem, 2.2vw, 2.2rem);
