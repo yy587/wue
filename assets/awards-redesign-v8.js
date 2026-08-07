@@ -8,6 +8,7 @@
 
   const copy = {
     zh: {
+      eyebrow: "WUE DESIGN / 奖项与刊登",
       title: "奖项与媒体",
       tabsLabel: "奖项资料分类",
       all: "全部",
@@ -19,6 +20,7 @@
       external: "打开相关官网"
     },
     en: {
+      eyebrow: "WUE DESIGN / RECOGNITION",
       title: "Awards & Media",
       tabsLabel: "Recognition archive categories",
       all: "All",
@@ -210,7 +212,7 @@
       <div class="wue-awards-container">
         <aside class="wue-awards-directory">
           <header class="wue-awards-intro">
-            <p>WUE DESIGN / RECOGNITION</p>
+            <p>${labels.eyebrow}</p>
             <h1>${labels.title}</h1>
             <nav class="wue-awards-tabs" aria-label="${labels.tabsLabel}">
               <button type="button" class="is-active" data-kind="全部">${labels.all}</button><span>/</span>
@@ -286,6 +288,7 @@
       if (nextLanguage === language) return;
       language = nextLanguage;
       labels = copy[language];
+      section.querySelector(".wue-awards-intro > p").textContent = labels.eyebrow;
       section.querySelector(".wue-awards-intro h1").textContent = labels.title;
       const tabs = section.querySelectorAll(".wue-awards-tabs button");
       section.querySelector(".wue-awards-tabs").setAttribute("aria-label", labels.tabsLabel);
