@@ -42,13 +42,43 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
   scroll-padding-inline: clamp(2rem, 7vw, 7rem);
   scroll-snap-type: x proximity;
   scrollbar-width: none;
-  cursor: url("../cursor-interactive.png") 16 16, pointer;
   user-select: none;
   touch-action: pan-x;
 }
 
 body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article).is-dragging {
   scroll-snap-type: none;
+}
+
+.wue-process-drag-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  padding: 0.48rem 0.62rem 0.46rem 0.72rem;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  background: rgb(17 17 17 / 92%);
+  color: #fff;
+  font-family: "Helvetica Neue", "Noto Sans SC", Arial, sans-serif;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+}
+
+.wue-process-drag-cursor.is-visible {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article),
+  body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article) * {
+    cursor: none !important;
+  }
 }
 
 body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article)::-webkit-scrollbar {
