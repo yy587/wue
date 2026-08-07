@@ -2,6 +2,8 @@
   --wue-font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", "Heiti SC", Arial, sans-serif;
   --wue-title-font-family: var(--wue-font-family);
   --wue-title-font-weight: 300;
+  --wue-eyebrow-font-size: 10px;
+  --wue-eyebrow-letter-spacing: 0.32em;
 }
 
 html,
@@ -46,4 +48,64 @@ h6,
   font-family: var(--wue-font-family) !important;
   font-style: normal !important;
   font-weight: 400 !important;
+}
+
+/* Align every page eyebrow with the right end of the navigation rule. */
+body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid {
+  position: relative;
+}
+
+body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid {
+  padding-top: 2.2rem;
+}
+
+body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid > p:first-child {
+  position: absolute;
+  top: 0.25rem;
+  right: 0;
+  margin: 0;
+  font-family: var(--wue-font-family) !important;
+  font-size: var(--wue-eyebrow-font-size) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--wue-eyebrow-letter-spacing) !important;
+  text-align: right;
+  white-space: nowrap;
+}
+
+body.wue-awards-redesign-active .wue-awards-container {
+  position: relative;
+}
+
+body.wue-awards-redesign-active .wue-awards-intro {
+  padding-top: 1.8rem;
+}
+
+body.wue-awards-redesign-active .wue-awards-intro > p {
+  position: absolute;
+  top: 0.25rem;
+  right: 0;
+  margin: 0;
+  font-family: var(--wue-font-family) !important;
+  font-size: var(--wue-eyebrow-font-size) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: var(--wue-eyebrow-letter-spacing) !important;
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  main div[class*="shrink-0"][class*="items-center"][class*="justify-between"][class*="uppercase"][class*="tracking-[0.32em]"] {
+    justify-content: flex-end !important;
+    padding-right: 0 !important;
+    text-align: right;
+  }
+}
+
+@media (max-width: 767px) {
+  body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid > p:first-child,
+  body.wue-awards-redesign-active .wue-awards-intro > p {
+    font-size: 8px !important;
+  }
 }
