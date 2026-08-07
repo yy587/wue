@@ -1,0 +1,15 @@
+:root {
+  --wue-font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", "Heiti SC", Arial, sans-serif;
+}
+
+html,
+body,
+body *,
+body *::before,
+body *::after,
+button,
+input,
+select,
+textarea {
+  font-family: var(--wue-font-family) !important;
+}
