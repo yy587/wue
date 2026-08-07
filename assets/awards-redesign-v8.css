@@ -84,16 +84,20 @@ body.wue-awards-redesign-active #root main { display: none; }
 .wue-awards-split-page .wue-awards-tabs button.is-active { color: #121212; }
 
 .wue-awards-split-page .wue-awards-list,
-.wue-awards-gallery {
+.wue-awards-gallery,
+.wue-awards-column {
   min-width: 0;
   min-height: 0;
+}
+
+.wue-awards-column {
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: none;
 }
 
 .wue-awards-split-page .wue-awards-list::-webkit-scrollbar,
-.wue-awards-gallery::-webkit-scrollbar { display: none; }
+.wue-awards-column::-webkit-scrollbar { display: none; }
 
 .wue-awards-split-page .wue-awards-list {
   display: block;
@@ -138,11 +142,21 @@ body.wue-awards-redesign-active #root main { display: none; }
   grid-area: gallery;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.25rem, 2.6vw, 2.6rem) clamp(1rem, 2vw, 2rem);
-  align-content: start;
+  column-gap: clamp(1rem, 2vw, 2rem);
+  align-content: stretch;
+  align-items: stretch;
   width: 94%;
+  height: 100%;
   padding: 0;
+  overflow: hidden;
   justify-self: start;
+}
+
+.wue-awards-column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.25rem, 2.6vw, 2.6rem);
+  height: 100%;
 }
 
 .wue-awards-card {
@@ -195,7 +209,8 @@ body.wue-awards-redesign-active #root main { display: none; }
   .wue-awards-gallery { width: 100%; }
   .wue-awards-directory { display: block; }
   .wue-awards-split-page .wue-awards-list { max-height: 46svh; }
-  .wue-awards-gallery { overflow: visible; }
+  .wue-awards-gallery,
+  .wue-awards-column { height: auto; overflow: visible; }
 }
 
 @media (max-width: 560px) {
