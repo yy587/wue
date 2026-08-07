@@ -97,6 +97,8 @@ body.wue-awards-redesign-active #root main { display: none; }
 
 .wue-awards-split-page .wue-awards-list {
   display: block;
+  overflow-y: hidden;
+  overscroll-behavior: none;
   padding: 1rem 0 0;
 }
 
@@ -124,7 +126,7 @@ body.wue-awards-redesign-active #root main { display: none; }
   gap: 0.75rem;
   align-items: baseline;
   width: 100%;
-  padding: 0.31rem 0;
+  padding: 0.1rem 0;
   border-top: 1px solid rgb(18 18 18 / 7%);
 }
 
