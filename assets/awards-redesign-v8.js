@@ -232,7 +232,11 @@
       const filtered = kind === "全部" ? items : items.filter((item) => item.kind === kind);
       const groups = [...new Set(filtered.map((item) => item.group))];
       list.innerHTML = "";
-      gallery.innerHTML = "";
+      gallery.innerHTML = `
+        <div class="wue-awards-column" data-column="0"></div>
+        <div class="wue-awards-column" data-column="1"></div>
+      `;
+      const galleryColumns = [...gallery.querySelectorAll(".wue-awards-column")];
       let sequence = 0;
 
       groups.forEach((group) => {
@@ -263,12 +267,12 @@
             </figure>
             <div><span>${number}</span><p>${escapeHtml(caption)}</p><small>↗</small></div>
           `;
-          gallery.appendChild(card);
+          galleryColumns[(sequence - 1) % galleryColumns.length].appendChild(card);
         });
         list.appendChild(article);
       });
       list.scrollTop = 0;
-      gallery.scrollTop = 0;
+      galleryColumns.forEach((column) => { column.scrollTop = 0; });
     }
 
     section.querySelectorAll(".wue-awards-tabs button").forEach((button) => {
