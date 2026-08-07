@@ -52,22 +52,9 @@
     });
   }
 
-  function getDragCursor() {
-    let cursor = document.querySelector(".wue-process-drag-cursor");
-    if (!cursor) {
-      cursor = document.createElement("div");
-      cursor.className = "wue-process-drag-cursor";
-      cursor.textContent = "DRAG ↔";
-      cursor.setAttribute("aria-hidden", "true");
-      document.body.append(cursor);
-    }
-    return cursor;
-  }
-
   function mount() {
     if (!isProcessPage()) {
       activeStrip = null;
-      document.querySelector(".wue-process-drag-cursor")?.classList.remove("is-visible");
       return;
     }
     const strip = findStrip();
@@ -77,24 +64,6 @@
     strip.dataset.wueHorizontalReady = "true";
     strip.tabIndex = 0;
     strip.setAttribute("aria-label", "设计流程横向浏览");
-    const dragCursor = getDragCursor();
-    const moveDragCursor = (event) => {
-      dragCursor.style.left = `${event.clientX}px`;
-      dragCursor.style.top = `${event.clientY}px`;
-    };
-    strip.addEventListener("pointerenter", (event) => {
-      if (event.pointerType === "touch") return;
-      moveDragCursor(event);
-      dragCursor.textContent = "DRAG ↔";
-      dragCursor.classList.add("is-visible");
-    });
-    strip.addEventListener("pointermove", (event) => {
-      if (event.pointerType !== "touch") moveDragCursor(event);
-    });
-    strip.addEventListener("pointerleave", () => {
-      dragCursor.classList.remove("is-visible");
-      dragCursor.textContent = "DRAG ↔";
-    });
     strip.addEventListener("wheel", (event) => {
       const maxScroll = strip.scrollWidth - strip.clientWidth;
       if (maxScroll <= 0) return;
@@ -115,7 +84,6 @@
       dragStartX = event.clientX;
       dragStartScroll = strip.scrollLeft;
       strip.classList.add("is-dragging");
-      dragCursor.textContent = "DRAGGING ↔";
       strip.setPointerCapture(event.pointerId);
     });
     strip.addEventListener("pointermove", (event) => {
@@ -127,7 +95,6 @@
       if (!dragging) return;
       dragging = false;
       strip.classList.remove("is-dragging");
-      dragCursor.textContent = "DRAG ↔";
       if (strip.hasPointerCapture(event.pointerId)) strip.releasePointerCapture(event.pointerId);
     };
     strip.addEventListener("pointerup", stopDragging);
