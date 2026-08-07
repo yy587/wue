@@ -52,6 +52,11 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
 }
 
 @media (hover: hover) and (pointer: fine) {
+  body.wue-process-page,
+  body.wue-process-page * {
+    cursor: url("../cursor-default.png") 16 16, auto !important;
+  }
+
   body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article),
   body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article) * {
     cursor: url("../cursor-interactive.png") 16 16, pointer !important;
