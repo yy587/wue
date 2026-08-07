@@ -231,19 +231,11 @@
     if (!kind) return;
 
     if (kind === "process") {
-      document.querySelectorAll("main article").forEach((article, index) => {
-        if (!processGroups[index] || article.dataset.wueArchiveReady) return;
-        article.dataset.wueArchiveReady = "true";
-        article.tabIndex = 0;
-        article.setAttribute("role", "button");
-        article.setAttribute("aria-label", `浏览${processGroups[index]}全部资料`);
-        article.addEventListener("click", () => openArchive("process", processGroups[index]));
-        article.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            openArchive("process", processGroups[index]);
-          }
-        });
+      document.querySelectorAll("main article").forEach((article) => {
+        delete article.dataset.wueArchiveReady;
+        article.removeAttribute("tabindex");
+        article.removeAttribute("role");
+        article.removeAttribute("aria-label");
       });
       return;
     }
