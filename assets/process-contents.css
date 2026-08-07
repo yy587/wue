@@ -4,24 +4,6 @@ body.wue-process-page.wue-process-landscape main section > div > div.grid {
   height: 100% !important;
 }
 
-body.wue-process-page.wue-process-landscape main section > div > div.grid::before {
-  content: "CONTENTS";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  z-index: 2;
-  width: max-content;
-  padding-left: 0.42em;
-  transform: translateX(-50%);
-  font-family: inherit;
-  font-size: clamp(20px, 1.8vw, 28px);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0.42em;
-  color: rgb(17 17 17 / 90%);
-  pointer-events: none;
-}
-
 body.wue-process-page.wue-process-landscape main section > div > div.grid::after {
   content: "WUE DESIGN / 设计流程";
   position: absolute;
@@ -47,10 +29,10 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
   width: 100%;
   height: calc(100svh - 1cm - 9.5rem) !important;
   grid-auto-flow: column;
-  grid-auto-columns: clamp(230px, 20vw, 292px);
+  grid-auto-columns: clamp(276px, 24vw, 350px);
   grid-template-columns: none !important;
   grid-template-rows: minmax(0, 1fr) !important;
-  gap: clamp(2.5rem, 5vw, 5.5rem) !important;
+  gap: clamp(2.25rem, 4vw, 4.5rem) !important;
   align-items: center;
   padding: 4.7rem clamp(2rem, 7vw, 7rem) 1.25rem;
   overflow-x: auto;
@@ -60,6 +42,7 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
   scroll-padding-inline: clamp(2rem, 7vw, 7rem);
   scroll-snap-type: x proximity;
   scrollbar-width: none;
+  cursor: url("../cursor-interactive.png") 16 16, pointer;
   user-select: none;
   touch-action: pan-x;
 }
@@ -82,9 +65,9 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
 body.wue-process-page.wue-process-landscape main section article {
   display: grid;
   width: 100%;
-  height: min(500px, 100%);
+  height: min(600px, 100%);
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: 48px 30px 92px minmax(0, 1fr);
+  grid-template-rows: 58px 36px 110px minmax(0, 1fr);
   align-self: center;
   margin: 0;
   overflow: hidden;
@@ -123,7 +106,7 @@ body.wue-process-page.wue-process-landscape main section article > div:not(.wue-
   align-self: center;
   justify-self: center;
   font-family: inherit;
-  font-size: clamp(28px, 2.5vw, 40px) !important;
+  font-size: clamp(34px, 3vw, 48px) !important;
   font-weight: 500;
   line-height: 1;
   letter-spacing: 0.06em !important;
@@ -139,7 +122,7 @@ body.wue-process-page.wue-process-landscape main section article > div:not(.wue-
   min-width: 0;
   overflow: hidden;
   font-family: inherit;
-  font-size: 10px !important;
+  font-size: 12px !important;
   font-weight: 400 !important;
   line-height: 1.4 !important;
   letter-spacing: 0.1em !important;
@@ -162,7 +145,7 @@ body.wue-process-page.wue-process-landscape main section article > .wue-process-
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 6;
   font-family: inherit;
-  font-size: 9.5px;
+  font-size: 11px;
   font-weight: 400;
   line-height: 1.65;
   letter-spacing: 0.045em;
@@ -180,7 +163,7 @@ body.wue-process-page.wue-process-landscape main section article > .wue-process-
 
   body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article) {
     height: calc(100svh - 1cm - 8rem) !important;
-    grid-auto-columns: min(78vw, 320px);
+    grid-auto-columns: min(88vw, 384px);
     gap: 2rem !important;
     padding: 4rem 11vw 1rem;
     scroll-padding-inline: 11vw;
@@ -188,10 +171,10 @@ body.wue-process-page.wue-process-landscape main section article > .wue-process-
   }
 
   body.wue-process-page.wue-process-landscape main section article {
-    height: min(500px, 100%);
+    height: min(560px, 100%);
   }
 
   body.wue-process-page.wue-process-landscape main section article > .wue-process-description {
-    font-size: 9px;
+    font-size: 10px;
   }
 }
