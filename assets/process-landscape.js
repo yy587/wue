@@ -1,6 +1,6 @@
 (() => {
   const stages = [
-    ["process-01-initial-contact.webp"],
+    ["process-01-initial-contact.webp?v=2"],
     ["process-02-pre-design.webp"],
     ["process-03-concept-design.webp"],
     ["process-04-schematic-design.webp"],
