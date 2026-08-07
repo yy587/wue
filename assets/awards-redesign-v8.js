@@ -39,7 +39,7 @@
     gooood: "https://www.gooood.cn/en/the-horizontal-window-house-by-wue-design.htm",
     elle: "https://www.elledeco.cn/",
     elleAwards: "https://ida.elledeco.cn/",
-    ideat: "https://www.ideatchina.com/",
+    ideat: "https://news.mydrivers.com/1/1008/1008493.htm",
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
     yitiao: "https://36kr.com/p/2970354219602179",
