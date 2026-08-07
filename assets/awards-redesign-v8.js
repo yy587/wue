@@ -42,7 +42,7 @@
     ideat: "https://www.ideatchina.com/",
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
-    yitiao: "https://www.yit.com/",
+    yitiao: "https://36kr.com/p/2970354219602179",
     trends: "https://www.trendsgroup.com.cn/"
   };
 
