@@ -8,13 +8,13 @@ body.wue-process-page.wue-process-landscape main section > div > div.grid::after
   content: "WUE DESIGN / 设计流程";
   position: absolute;
   top: 0.25rem;
-  right: clamp(2rem, 4vw, 4rem);
+  right: 0;
   z-index: 2;
-  font-family: inherit;
-  font-size: 9px;
+  font-family: var(--wue-font-family);
+  font-size: var(--wue-eyebrow-font-size);
   font-weight: 400;
   line-height: 1;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--wue-eyebrow-letter-spacing);
   color: rgb(17 17 17 / 62%);
   pointer-events: none;
 }
@@ -83,6 +83,8 @@ body.wue-process-page.wue-process-landscape main section article {
   align-self: center;
   margin: 0;
   overflow: hidden;
+  transform: scale(1.1);
+  transform-origin: center;
 }
 
 body.wue-process-page.wue-process-landscape main section article > .wue-process-landscape-frame {
@@ -169,7 +171,7 @@ body.wue-process-page.wue-process-landscape main section article > .wue-process-
 @media (max-width: 767px) {
   body.wue-process-page.wue-process-landscape main section > div > div.grid::after {
     top: 0.2rem;
-    right: 1rem;
+    right: 0;
     font-size: 7px;
   }
 
