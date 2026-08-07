@@ -1,5 +1,7 @@
 :root {
   --wue-font-family: "Noto Sans SC", "Microsoft YaHei", "PingFang SC", "Heiti SC", Arial, sans-serif;
+  --wue-title-font-family: var(--wue-font-family);
+  --wue-title-font-weight: 300;
 }
 
 html,
@@ -12,4 +14,36 @@ input,
 select,
 textarea {
   font-family: var(--wue-font-family) !important;
+}
+
+html,
+body {
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+[role="heading"],
+.wue-awards-intro h1,
+.wue-awards-year h2,
+.wue-archive-header h2,
+.wue-archive-preview h2 {
+  font-family: var(--wue-title-font-family) !important;
+  font-style: normal !important;
+  font-weight: var(--wue-title-font-weight) !important;
+}
+
+.wue-awards-intro > p,
+.wue-awards-tabs,
+.wue-archive-header > p {
+  font-family: var(--wue-font-family) !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
 }
