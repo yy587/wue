@@ -14,7 +14,7 @@ body.wue-process-landscape .wue-process-landscape-frame > img {
   height: 100% !important;
   max-width: none !important;
   max-height: none !important;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -27,7 +27,7 @@ body.wue-process-page.wue-process-landscape main section article > .wue-process-
   height: 100% !important;
   max-width: none !important;
   max-height: none !important;
-  object-fit: cover !important;
+  object-fit: contain !important;
   object-position: center !important;
 }
 
