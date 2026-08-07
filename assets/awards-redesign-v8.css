@@ -20,16 +20,18 @@ body.wue-awards-redesign-active #root main { display: none; }
 
 .wue-awards-split-page .wue-awards-container {
   display: grid;
-  grid-template-columns: minmax(280px, 34%) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 34%);
+  grid-template-areas: "gallery directory";
   gap: clamp(2rem, 5vw, 5rem);
   width: calc(100% - 3rem);
-  max-width: 1760px;
+  max-width: 1480px;
   height: 100%;
   margin: 0 auto;
   min-height: 0;
 }
 
 .wue-awards-directory {
+  grid-area: directory;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   min-width: 0;
@@ -73,6 +75,7 @@ body.wue-awards-redesign-active #root main { display: none; }
 
 .wue-awards-split-page .wue-awards-list,
 .wue-awards-gallery {
+  grid-area: gallery;
   min-width: 0;
   min-height: 0;
   overflow-y: auto;
@@ -169,7 +172,12 @@ body.wue-awards-redesign-active #root main { display: none; }
 @media (max-width: 900px) {
   body.wue-awards-redesign-active { height: auto; overflow-y: auto; }
   .wue-awards-split-page { height: auto; min-height: 100svh; overflow: visible; padding-top: calc(1cm + 3.4rem); }
-  .wue-awards-split-page .wue-awards-container { grid-template-columns: 1fr; height: auto; gap: 2rem; }
+  .wue-awards-split-page .wue-awards-container {
+    grid-template-columns: 1fr;
+    grid-template-areas: "directory" "gallery";
+    height: auto;
+    gap: 2rem;
+  }
   .wue-awards-directory { display: block; }
   .wue-awards-split-page .wue-awards-list { max-height: 46svh; }
   .wue-awards-gallery { overflow: visible; }
