@@ -1,7 +1,7 @@
 (function () {
   const scriptUrl = new URL(document.currentScript.src);
   const siteRoot = new URL("../", scriptUrl);
-  const dataUrl = new URL("archive-gallery-data.json", scriptUrl);
+  const dataUrl = new URL("archive-gallery-data.json?v=3", scriptUrl);
   let dataPromise;
   let currentPath = "";
   let mountTimer;
@@ -39,6 +39,7 @@
     archdaily: "https://www.archdaily.cn/cn/998346/zi-zao-zhai-fei-chuan-tong-xing-de-liu-dong-kong-jian-wu-yi-she-ji-gong-zuo-shi",
     dezeen: "https://www.dezeen.com/",
     gooood: "https://www.gooood.cn/en/the-horizontal-window-house-by-wue-design.htm",
+    goooodFuelGallery: "https://www.gooood.cn/fuel-gallery-by-wue-design.htm",
     elle: "https://www.elledeco.cn/",
     elleAwards: "https://ida.elledeco.cn/",
     ideat: "https://news.mydrivers.com/1/1008/1008493.htm",
@@ -66,7 +67,9 @@
     { ids: ["award-038", "award-039", "award-040", "award-041", "award-042", "award-045"], cover: "award-038", caption: "印际｜自造宅：非传统性的流动空间" },
     { ids: ["award-043"], caption: "ArchDaily｜自造宅，非传统性的流动空间" },
     { ids: ["award-044"], caption: "Dezeen｜开放而具流动性的工作室兼住宅" },
-    { ids: ["award-046"], caption: "gooood谷德设计网｜横窗之家，由“窗”至“居”" }
+    { ids: ["award-046"], caption: "gooood谷德设计网｜横窗之家，由“窗”至“居”" },
+    { ids: ["award-047"], caption: "2024 ELLEDECO 家居廊｜设计廊145 首发｜短墙之家" },
+    { ids: ["award-048"], caption: "gooood谷德设计网｜燃画廊：灵活的复合型模块化展厅" }
   ];
 
   function consolidateItems(items) {
@@ -100,6 +103,10 @@
       .replaceAll("中国室内建筑设计年鉴", "China Interior Architecture Design Annual")
       .replaceAll("沙沙冷萃园", "Shasha Coffee")
       .replaceAll("横窗之家", "The Horizontal Window House")
+      .replaceAll("短墙之家", "Short Wall House")
+      .replaceAll("设计廊145 首发", "Design Gallery 145 Debut")
+      .replaceAll("燃画廊", "Fuel Gallery")
+      .replaceAll("灵活的复合型模块化展厅", "A Flexible Hybrid Modular Gallery")
       .replaceAll("鸢尾花之家", "Irises House")
       .replaceAll("自造宅", "Self-built House")
       .replaceAll("屋己设计", "WUE Design")
@@ -156,6 +163,7 @@
     if (caption.includes("印际")) return sourceUrls.yinji;
     if (caption.includes("ArchDaily")) return sourceUrls.archdaily;
     if (caption.includes("Dezeen")) return sourceUrls.dezeen;
+    if (caption.includes("燃画廊")) return sourceUrls.goooodFuelGallery;
     if (caption.includes("gooood")) return sourceUrls.gooood;
     if (caption.includes("ELLEDECO") && caption.includes("中国室内建筑设计")) return sourceUrls.elleAwards;
     if (caption.includes("ELLEDECO")) return sourceUrls.elle;
