@@ -46,7 +46,7 @@
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
     yitiao: "https://36kr.com/p/2970354219602179",
-    trends: "http://www.trends-home.com/"
+    trends: "https://www.trendshome.com.cn/jiaju/"
   };
 
   const consolidationGroups = [
@@ -354,4 +354,5 @@
   window.addEventListener("popstate", scheduleMount);
   scheduleMount();
 })();
+
 
