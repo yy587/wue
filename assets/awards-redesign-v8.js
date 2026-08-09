@@ -41,13 +41,13 @@
     gooood: "https://www.gooood.cn/en/the-horizontal-window-house-by-wue-design.htm",
     goooodFuelGallery: "https://www.gooood.cn/fuel-gallery-by-wue-design.htm",
     elle: "https://www.elledeco.cn/",
-    elleShortWall: "https://mp.weixin.qq.com/s/gUMOs4rKz6q44tZPlhLfew",
+    elleShortWall: "https://mp.weixin.qq.com/s/AekPlJDrL3awqV75OaKmcA",
     elleAwards: "https://ida.elledeco.cn/",
     ideat: "https://news.mydrivers.com/1/1008/1008493.htm",
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
     yitiao: "https://36kr.com/p/2970354219602179",
-    trends: "https://mp.weixin.qq.com/s/AekPlJDrL3awqV75OaKmcA"
+    trends: "https://mp.weixin.qq.com/s/yrPWw0HQFd1J3QMEYdZkvA"
   };
 
   const consolidationGroups = [
@@ -356,6 +356,7 @@
   window.addEventListener("popstate", scheduleMount);
   scheduleMount();
 })();
+
 
 
 
