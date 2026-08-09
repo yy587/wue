@@ -1,7 +1,7 @@
 (function () {
   const scriptUrl = new URL(document.currentScript.src);
   const siteRoot = new URL("../", scriptUrl);
-  const dataUrl = new URL("archive-gallery-data.json?v=3", scriptUrl);
+  const dataUrl = new URL("archive-gallery-data.json?v=4", scriptUrl);
   let dataPromise;
   let currentPath = "";
   let mountTimer;
@@ -46,7 +46,7 @@
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
     yitiao: "https://36kr.com/p/2970354219602179",
-    trends: "https://www.trendsgroup.com.cn/"
+    trends: "http://www.trends-home.com/"
   };
 
   const consolidationGroups = [
@@ -67,9 +67,10 @@
     { ids: ["award-038", "award-039", "award-040", "award-041", "award-042", "award-045"], cover: "award-038", caption: "印际｜自造宅：非传统性的流动空间" },
     { ids: ["award-043"], caption: "ArchDaily｜自造宅，非传统性的流动空间" },
     { ids: ["award-044"], caption: "Dezeen｜开放而具流动性的工作室兼住宅" },
-    { ids: ["award-046"], caption: "gooood谷德设计网｜横窗之家，由“窗”至“居”" },
+    { ids: ["award-046"], caption: "gooood谷德设计网｜横窗之家" },
     { ids: ["award-047"], caption: "2024 ELLEDECO 家居廊｜设计廊145 首发｜短墙之家" },
-    { ids: ["award-048"], caption: "gooood谷德设计网｜燃画廊：灵活的复合型模块化展厅" }
+    { ids: ["award-048"], caption: "2024 时尚家居｜海盐味的75㎡小家，就像一个“海边甜品站”" },
+    { ids: ["award-049"], caption: "gooood谷德设计网｜燃画廊：灵活的复合型模块化展厅" }
   ];
 
   function consolidateItems(items) {
@@ -107,6 +108,7 @@
       .replaceAll("设计廊145 首发", "Design Gallery 145 Debut")
       .replaceAll("燃画廊", "Fuel Gallery")
       .replaceAll("灵活的复合型模块化展厅", "A Flexible Hybrid Modular Gallery")
+      .replaceAll("海盐味的75㎡小家，就像一个“海边甜品站”", "A 75㎡ Sea-salt Home, Like a Seaside Dessert Station")
       .replaceAll("鸢尾花之家", "Irises House")
       .replaceAll("自造宅", "Self-built House")
       .replaceAll("屋己设计", "WUE Design")
@@ -171,7 +173,7 @@
     if (caption.includes("PChouse")) return sourceUrls.pchouse;
     if (caption.includes("AD100Young")) return sourceUrls.ad100;
     if (caption.includes("一条")) return sourceUrls.yitiao;
-    if (caption.includes("TRENDSHOME")) return sourceUrls.trends;
+    if (caption.includes("TRENDSHOME") || caption.includes("时尚家居")) return sourceUrls.trends;
     return sourceUrls.elle;
   }
 
@@ -352,3 +354,4 @@
   window.addEventListener("popstate", scheduleMount);
   scheduleMount();
 })();
+
