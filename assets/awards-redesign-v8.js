@@ -43,7 +43,7 @@
     elle: "https://www.elledeco.cn/",
     elleShortWall: "https://mp.weixin.qq.com/s/AekPlJDrL3awqV75OaKmcA",
     elleAwards: "https://ida.elledeco.cn/",
-    ideat: "https://news.mydrivers.com/1/1008/1008493.htm",
+    ideat: "https://mp.weixin.qq.com/s/8KvCyW-uCW4T3RkDTHdz3w?scene=1",
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
     yitiao: "https://36kr.com/p/2970354219602179",
@@ -356,6 +356,7 @@
   window.addEventListener("popstate", scheduleMount);
   scheduleMount();
 })();
+
 
 
 
