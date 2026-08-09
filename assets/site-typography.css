@@ -51,15 +51,15 @@ h6,
 }
 
 /* Align every page eyebrow with the right end of the navigation rule. */
-body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid {
+body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid:has(> aside > div > div.grid > p:first-child[class*="uppercase"][class*="tracking"]) {
   position: relative;
 }
 
-body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid {
+body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid:has(> p:first-child[class*="uppercase"][class*="tracking"]) {
   padding-top: 2.2rem;
 }
 
-body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid > p:first-child {
+body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid > p:first-child[class*="uppercase"][class*="tracking"] {
   position: absolute;
   top: 0.25rem;
   right: 0;
@@ -104,7 +104,7 @@ body.wue-awards-redesign-active .wue-awards-intro > p {
 }
 
 @media (max-width: 767px) {
-  body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid > p:first-child,
+  body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div > div.grid > aside > div > div.grid > p:first-child[class*="uppercase"][class*="tracking"],
   body.wue-awards-redesign-active .wue-awards-intro > p {
     font-size: 8px !important;
   }
