@@ -1,3 +1,8 @@
+html.wue-awards-preload #root main {
+  visibility: hidden;
+  opacity: 0;
+}
+
 body.wue-awards-redesign-active {
   height: 100svh;
   overflow: hidden;
