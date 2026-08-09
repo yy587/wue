@@ -41,12 +41,13 @@
     gooood: "https://www.gooood.cn/en/the-horizontal-window-house-by-wue-design.htm",
     goooodFuelGallery: "https://www.gooood.cn/fuel-gallery-by-wue-design.htm",
     elle: "https://www.elledeco.cn/",
+    elleShortWall: "https://mp.weixin.qq.com/s/gUMOs4rKz6q44tZPlhLfew",
     elleAwards: "https://ida.elledeco.cn/",
     ideat: "https://news.mydrivers.com/1/1008/1008493.htm",
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
     yitiao: "https://36kr.com/p/2970354219602179",
-    trends: "https://www.trendshome.com.cn/jiaju/"
+    trends: "https://mp.weixin.qq.com/s/AekPlJDrL3awqV75OaKmcA"
   };
 
   const consolidationGroups = [
@@ -168,6 +169,7 @@
     if (caption.includes("燃画廊")) return sourceUrls.goooodFuelGallery;
     if (caption.includes("gooood")) return sourceUrls.gooood;
     if (caption.includes("ELLEDECO") && caption.includes("中国室内建筑设计")) return sourceUrls.elleAwards;
+    if (caption.includes("短墙之家")) return sourceUrls.elleShortWall;
     if (caption.includes("ELLEDECO")) return sourceUrls.elle;
     if (caption.includes("IDEAT")) return sourceUrls.ideat;
     if (caption.includes("PChouse")) return sourceUrls.pchouse;
@@ -354,5 +356,7 @@
   window.addEventListener("popstate", scheduleMount);
   scheduleMount();
 })();
+
+
 
 
