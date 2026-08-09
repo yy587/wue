@@ -199,6 +199,7 @@
   function cleanup() {
     document.getElementById("wue-awards-redesign")?.remove();
     document.body.classList.remove("wue-awards-redesign-active");
+    document.documentElement.classList.remove("wue-awards-preload");
   }
 
   function makePage(items, initialLanguage) {
@@ -309,10 +310,12 @@
       currentPath = path;
       return;
     }
+    document.documentElement.classList.add("wue-awards-preload");
     currentPath = path;
     const existingPage = document.getElementById("wue-awards-redesign");
     if (existingPage) {
       existingPage.__wueSetLanguage?.(getLanguage());
+      document.documentElement.classList.remove("wue-awards-preload");
       return;
     }
     const originalSection = document.querySelector("#root main section");
@@ -321,6 +324,7 @@
     if (!isAwardsPage() || document.getElementById("wue-awards-redesign")) return;
     document.body.classList.add("wue-awards-redesign-active");
     document.body.appendChild(makePage(consolidateItems(data.awards), getLanguage()));
+    document.documentElement.classList.remove("wue-awards-preload");
   }
 
   function scheduleMount() {
@@ -329,6 +333,14 @@
   }
 
   new MutationObserver(scheduleMount).observe(document.getElementById("root"), { childList: true, subtree: true });
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest?.("a[href]");
+    if (!link) return;
+    const url = new URL(link.getAttribute("href"), window.location.href);
+    if (url.pathname.replace(/\/$/, "").endsWith("/awards")) {
+      document.documentElement.classList.add("wue-awards-preload");
+    }
+  }, true);
   window.addEventListener("popstate", scheduleMount);
   scheduleMount();
 })();
