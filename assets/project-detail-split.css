@@ -1,0 +1,63 @@
+/* Desktop project pages: keep the image gallery fixed and scroll only the details. */
+@media (min-width: 1024px) {
+  html.wue-project-detail,
+  html.wue-project-detail body,
+  html.wue-project-detail #root,
+  html.wue-project-detail main,
+  html.wue-project-detail main > div {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  html.wue-project-detail main section {
+    box-sizing: border-box;
+    height: 100%;
+    min-height: 0;
+    padding-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  html.wue-project-detail main section > div {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+
+  html.wue-project-detail main section > div > button {
+    flex: 0 0 auto;
+  }
+
+  html.wue-project-detail main section > div > button + div {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  html.wue-project-detail main section > div > button + div > div:first-child {
+    position: static !important;
+    display: flex;
+    min-height: 0;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  html.wue-project-detail main .gallery-strip {
+    width: 100%;
+    overscroll-behavior-x: contain;
+  }
+
+  html.wue-project-detail main section aside {
+    position: static !important;
+    top: auto !important;
+    height: 100%;
+    min-height: 0;
+    padding-right: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+}
+

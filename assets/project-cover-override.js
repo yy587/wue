@@ -1,5 +1,7 @@
 (() => {
   const isProjectsIndex = () => /\/(?:wue\/)?projects\/?$/.test(window.location.pathname);
+  const isProjectDetail = () => /\/(?:wue\/)?projects\/[^/]+\/?$/.test(window.location.pathname);
+  document.documentElement.classList.toggle("wue-project-detail", isProjectDetail());
   const interiorCover = new URL("22-B61pTDli.webp", document.currentScript.src).href;
   const titles = {
     zh: {
@@ -41,7 +43,7 @@
   };
 
   const routeKey = () => window.location.pathname
-    .replace(/^\/?/, "")
+    .replace(/^\/wue\/?/, "")
     .replace(/^\/+|\/+$/g, "");
 
   const getLanguage = () => {
