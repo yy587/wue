@@ -41,25 +41,25 @@
     gooood: "https://www.gooood.cn/en/the-horizontal-window-house-by-wue-design.htm",
     goooodFuelGallery: "https://www.gooood.cn/fuel-gallery-by-wue-design.htm",
     elle: "https://www.elledeco.cn/",
+    elleShasha: "https://ida.elledeco.cn/index/index/details.html?id=1704",
     elleShortWall: "https://mp.weixin.qq.com/s/AekPlJDrL3awqV75OaKmcA",
     elleAwards: "https://ida.elledeco.cn/",
     ideat: "https://mp.weixin.qq.com/s/8KvCyW-uCW4T3RkDTHdz3w?scene=1",
-    pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
+    pchouse: "https://sheji.pchouse.com.cn/419/4193098.html",
     ad100: "https://www.adstyle.com.cn/ad100-young/2024/designer_14123c80e3958cdd.html",
     yitiao: "https://36kr.com/p/2970354219602179",
     trends: "https://www.trendshome.com.cn/jiaju/",
-    trendsSelfBuilt: "https://mp.weixin.qq.com/s/yrPWw0HQFd1J3QMEYdZkvA",
-    goooodHorizontalWechat: "https://mp.weixin.qq.com/s/gUMOs4rKz6q44tZPlhLfew",
-    goooodFuelWechat: "https://mp.weixin.qq.com/s/X0rWJi22DI4ftWwcnVIwXw"
+    trendsSelfBuilt: "https://mp.weixin.qq.com/s/yrPWw0HQFd1J3QMEYdZkvA"
   };
 
   const exactItemUrls = {
+    "award-006": sourceUrls.elleShasha,
     "award-022": sourceUrls.ideat,
     "award-016": sourceUrls.trendsSelfBuilt,
-    "award-046": sourceUrls.goooodHorizontalWechat,
+    "award-046": sourceUrls.gooood,
     "award-047": sourceUrls.elleShortWall,
     "award-048": sourceUrls.trends,
-    "award-049": sourceUrls.goooodFuelWechat
+    "award-049": sourceUrls.goooodFuelGallery
   };
 
   const consolidationGroups = [
