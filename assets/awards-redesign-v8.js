@@ -361,7 +361,11 @@
     mountTimer = setTimeout(() => mount().catch(console.error), 40);
   }
 
-  new MutationObserver(scheduleMount).observe(document.getElementById("root"), { childList: true, subtree: true });
+  new MutationObserver(scheduleMount).observe(document.getElementById("root"), {
+    childList: true,
+    subtree: true,
+    characterData: true
+  });
   document.addEventListener("click", (event) => {
     const link = event.target.closest?.("a[href]");
     if (!link) return;

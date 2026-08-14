@@ -117,7 +117,13 @@
     activeStrip = strip;
   }
 
-  new MutationObserver(mount).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ["lang"] });
+  new MutationObserver(mount).observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    characterData: true,
+    attributes: true,
+    attributeFilter: ["lang"]
+  });
   addEventListener("popstate", mount);
   addEventListener("resize", () => activeStrip?.scrollTo({ left: activeStrip.scrollLeft }));
   mount();

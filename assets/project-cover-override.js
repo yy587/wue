@@ -88,6 +88,7 @@
   new MutationObserver(updatePage).observe(document.documentElement, {
     childList: true,
     subtree: true,
+    characterData: true,
   });
   addEventListener("popstate", updatePage);
 })();
