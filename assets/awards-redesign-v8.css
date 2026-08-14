@@ -203,23 +203,46 @@ body.wue-awards-redesign-active #root main { display: none; }
 .wue-awards-card > div p { margin: 0; font-size: 9px; line-height: 1.45; color: rgb(18 18 18 / 75%); }
 
 @media (max-width: 900px) {
-  body.wue-awards-redesign-active { height: auto; overflow-y: auto; }
-  .wue-awards-split-page { height: auto; min-height: 100svh; overflow: visible; padding-top: calc(1cm + 3.4rem); }
+  body.wue-awards-redesign-active { height: 100svh; overflow: hidden; }
+  .wue-awards-split-page {
+    box-sizing: border-box;
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+    padding-top: calc(1cm + 3.4rem);
+  }
   .wue-awards-split-page .wue-awards-container {
     grid-template-columns: 1fr;
     grid-template-areas: "directory" "gallery";
-    height: auto;
-    gap: 2rem;
+    grid-template-rows: minmax(0, 3fr) minmax(0, 5fr);
+    height: 100%;
+    gap: 1rem;
   }
-  .wue-awards-gallery { width: 100%; }
-  .wue-awards-directory { display: block; }
-  .wue-awards-split-page .wue-awards-list { max-height: 46svh; }
-  .wue-awards-gallery,
-  .wue-awards-column { height: auto; overflow: visible; }
+  .wue-awards-directory {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
+  }
+  .wue-awards-split-page .wue-awards-list {
+    max-height: none;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .wue-awards-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+  .wue-awards-gallery::-webkit-scrollbar { display: none; }
+  .wue-awards-column { display: contents; }
 }
 
 @media (max-width: 560px) {
   .wue-awards-split-page .wue-awards-container { width: calc(100% - 1.5rem); }
-  .wue-awards-gallery { grid-template-columns: 1fr; }
+  .wue-awards-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
   .wue-awards-split-page .wue-awards-intro h1 { font-size: 1.65rem; }
+  .wue-awards-card > div { grid-template-columns: 20px minmax(0, 1fr) auto; gap: 0.35rem; }
 }

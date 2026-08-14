@@ -34,8 +34,9 @@
   }
 
   function currentLanguage(strip) {
-    const firstTitle = strip.querySelector(":scope > div > article div:not(.wue-process-landscape-frame) span:last-child")?.textContent || "";
-    return /[\u3400-\u9fff]/.test(firstTitle) ? "zh" : "en";
+    const awardsLink = [...document.querySelectorAll("#site-navigation a")]
+      .find((link) => link.getAttribute("href")?.replace(/\/$/, "").endsWith("/awards"));
+    return awardsLink?.textContent.trim() === "Awards" ? "en" : "zh";
   }
 
   function applyDescriptions(strip) {
