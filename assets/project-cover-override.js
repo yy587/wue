@@ -90,5 +90,10 @@
     subtree: true,
     characterData: true,
   });
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest?.("button")?.textContent.includes("中文 | EN")) return;
+    setTimeout(updatePage, 80);
+    setTimeout(updatePage, 320);
+  }, true);
   addEventListener("popstate", updatePage);
 })();

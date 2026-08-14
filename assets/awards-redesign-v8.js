@@ -367,6 +367,10 @@
     characterData: true
   });
   document.addEventListener("click", (event) => {
+    if (event.target.closest?.("button")?.textContent.includes("中文 | EN")) {
+      setTimeout(scheduleMount, 80);
+      setTimeout(scheduleMount, 320);
+    }
     const link = event.target.closest?.("a[href]");
     if (!link) return;
     const url = new URL(link.getAttribute("href"), window.location.href);

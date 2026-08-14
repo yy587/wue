@@ -124,6 +124,11 @@
     attributes: true,
     attributeFilter: ["lang"]
   });
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest?.("button")?.textContent.includes("中文 | EN")) return;
+    setTimeout(mount, 80);
+    setTimeout(mount, 320);
+  }, true);
   addEventListener("popstate", mount);
   addEventListener("resize", () => activeStrip?.scrollTo({ left: activeStrip.scrollLeft }));
   mount();
