@@ -17,7 +17,7 @@
       award: "奖项",
       publication: "刊登",
       mediaGroup: "媒体报道",
-      external: "打开相关官网"
+      external: "打开来源或完整档案"
     },
     en: {
       eyebrow: "WUE DESIGN / RECOGNITION",
@@ -29,7 +29,7 @@
       award: "Award",
       publication: "Publication",
       mediaGroup: "Media Coverage",
-      external: "Open official source"
+      external: "Open source or full archive"
     }
   };
 
@@ -174,6 +174,7 @@
 
   function itemUrl(item) {
     const caption = item.caption;
+    const archiveUrl = assetUrl(item);
     const exact = String(item.id || "")
       .split("+")
       .map((id) => exactItemUrls[id])
@@ -182,18 +183,18 @@
     if (caption.includes("有方")) return sourceUrls.youfang;
     if (caption.includes("印际")) return sourceUrls.yinji;
     if (caption.includes("ArchDaily")) return sourceUrls.archdaily;
-    if (caption.includes("Dezeen")) return sourceUrls.dezeen;
+    if (caption.includes("Dezeen")) return archiveUrl;
     if (caption.includes("燃画廊")) return sourceUrls.goooodFuelGallery;
     if (caption.includes("gooood")) return sourceUrls.gooood;
-    if (caption.includes("ELLEDECO") && caption.includes("中国室内建筑设计")) return sourceUrls.elleAwards;
+    if (caption.includes("ELLEDECO") && caption.includes("中国室内建筑设计")) return archiveUrl;
     if (caption.includes("短墙之家")) return sourceUrls.elleShortWall;
-    if (caption.includes("ELLEDECO")) return sourceUrls.elle;
+    if (caption.includes("ELLEDECO")) return archiveUrl;
     if (caption.includes("IDEAT")) return sourceUrls.ideat;
     if (caption.includes("PChouse")) return sourceUrls.pchouse;
     if (caption.includes("AD100Young")) return sourceUrls.ad100;
     if (caption.includes("一条")) return sourceUrls.yitiao;
     if (caption.includes("TRENDSHOME") || caption.includes("时尚家居")) return sourceUrls.trends;
-    return sourceUrls.elle;
+    return archiveUrl;
   }
 
   window.WUEAwardsI18n = { itemCaption, itemKind, itemGroup };
