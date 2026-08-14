@@ -1,5 +1,5 @@
 /* Desktop project pages: keep the image gallery fixed and scroll only the details. */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   html.wue-project-detail,
   html.wue-project-detail body,
   html.wue-project-detail #root,
