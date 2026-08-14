@@ -1,7 +1,6 @@
 (() => {
   const isProjectsIndex = () => /\/(?:wue\/)?projects\/?$/.test(window.location.pathname);
   const isProjectDetail = () => /\/(?:wue\/)?projects\/[^/]+\/?$/.test(window.location.pathname);
-  document.documentElement.classList.toggle("wue-project-detail", isProjectDetail());
   const interiorCover = new URL("22-B61pTDli.webp", document.currentScript.src).href;
   const titles = {
     zh: {
@@ -85,6 +84,10 @@
   };
 
   const updatePage = () => {
+    // React Router changes routes without reloading this script. Re-evaluate the
+    // page class on every update so the desktop scroll lock never leaks back to
+    // the homepage after leaving a project detail page.
+    document.documentElement.classList.toggle("wue-project-detail", isProjectDetail());
     updateShashaCover();
     updatePageMetadata();
   };
