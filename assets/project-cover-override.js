@@ -56,16 +56,19 @@
     if (document.title !== nextTitle) document.title = nextTitle;
 
     if (language !== "en") return;
-    const replacements = new Map([
+    const replacements = [
       ["一层", "First Floor"],
       ["二层", "Second Floor"],
       ["屋已设计工作室", "WUE Design Studio"]
-    ]);
+    ];
     document.querySelectorAll("main span, main p, main small, main div").forEach((element) => {
       if (element.childElementCount > 0) return;
-      const source = element.textContent.trim();
-      const replacement = replacements.get(source);
-      if (replacement && element.textContent !== replacement) element.textContent = replacement;
+      const source = element.textContent;
+      const replacement = replacements.reduce(
+        (value, [from, to]) => value.replaceAll(from, to),
+        source
+      );
+      if (source !== replacement) element.textContent = replacement;
     });
   };
 
