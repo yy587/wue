@@ -57,7 +57,13 @@
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
-    scrollbar-gutter: stable;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html.wue-project-detail main section aside::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
 }
-
