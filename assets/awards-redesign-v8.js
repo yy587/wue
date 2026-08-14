@@ -47,7 +47,16 @@
     pchouse: "https://www.pchouse.com.cn/mda/pchouseaward/2024/dsjs/",
     ad100: "https://ad100.adstyle.com.cn/",
     yitiao: "https://36kr.com/p/2970354219602179",
-    trends: "https://mp.weixin.qq.com/s/yrPWw0HQFd1J3QMEYdZkvA"
+    trends: "https://www.trendshome.com.cn/jiaju/",
+    trendsSeaSalt: "https://mp.weixin.qq.com/s/yrPWw0HQFd1J3QMEYdZkvA"
+  };
+
+  const exactItemUrls = {
+    "award-022": sourceUrls.ideat,
+    "award-046": sourceUrls.gooood,
+    "award-047": sourceUrls.elleShortWall,
+    "award-048": sourceUrls.trendsSeaSalt,
+    "award-049": sourceUrls.goooodFuelGallery
   };
 
   const consolidationGroups = [
@@ -162,6 +171,11 @@
 
   function itemUrl(item) {
     const caption = item.caption;
+    const exact = String(item.id || "")
+      .split("+")
+      .map((id) => exactItemUrls[id])
+      .find(Boolean);
+    if (exact) return exact;
     if (caption.includes("有方")) return sourceUrls.youfang;
     if (caption.includes("印际")) return sourceUrls.yinji;
     if (caption.includes("ArchDaily")) return sourceUrls.archdaily;
