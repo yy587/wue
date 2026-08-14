@@ -103,5 +103,12 @@
     setTimeout(updatePage, 80);
     setTimeout(updatePage, 320);
   }, true);
+  document.addEventListener("wheel", (event) => {
+    if (!isProjectDetail() || window.innerWidth < 1024 || event.ctrlKey) return;
+    const details = document.querySelector("main section aside");
+    if (!details || event.target.closest?.("main section aside")) return;
+    event.preventDefault();
+    details.scrollTop += event.deltaY;
+  }, { passive: false });
   addEventListener("popstate", updatePage);
 })();
