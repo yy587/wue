@@ -109,3 +109,16 @@ body.wue-awards-redesign-active .wue-awards-intro > p {
     font-size: 8px !important;
   }
 }
+/* Keep pages scrollable while hiding the browser scrollbar. */
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
