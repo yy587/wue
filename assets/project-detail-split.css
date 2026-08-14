@@ -29,6 +29,8 @@
   }
 
   html.wue-project-detail main section > div > button + div {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 360px) !important;
     flex: 1 1 auto;
     height: auto;
     min-height: 0;
