@@ -104,11 +104,11 @@
     setTimeout(updatePage, 320);
   }, true);
   document.addEventListener("wheel", (event) => {
-    if (!isProjectDetail() || window.innerWidth < 768 || event.ctrlKey) return;
+    if (!isProjectDetail() || window.innerWidth < 640 || event.ctrlKey) return;
     const details = document.querySelector("main section aside");
     if (!details || event.target.closest?.("main section aside")) return;
     event.preventDefault();
     details.scrollTop += event.deltaY;
-  }, { passive: false });
+  }, { passive: false, capture: true });
   addEventListener("popstate", updatePage);
 })();

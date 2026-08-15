@@ -1,5 +1,5 @@
 /* Desktop project pages: keep the image gallery fixed and scroll only the details. */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
   html.wue-project-detail,
   html.wue-project-detail body,
   html.wue-project-detail #root,
@@ -30,7 +30,7 @@
 
   html.wue-project-detail main section > div > button + div {
     display: grid !important;
-    grid-template-columns: minmax(0, 1fr) clamp(300px, 34vw, 360px) !important;
+    grid-template-columns: minmax(0, 1fr) clamp(260px, 38vw, 360px) !important;
     flex: 1 1 auto;
     height: auto;
     min-height: 0;
