@@ -73,6 +73,19 @@ body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div 
   white-space: nowrap;
 }
 
+/*
+ * The about sidebar is animated by the application on route entry. Its
+ * temporary transform becomes the containing block for the absolutely
+ * positioned eyebrow, then disappears at the end of the animation and makes
+ * the eyebrow jump. Keep this one sidebar at its final position from frame 1.
+ */
+@media (min-width: 1024px) {
+  html.wue-about-page main section > div > div.grid > aside > div {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 body.wue-awards-redesign-active .wue-awards-container {
   position: relative;
 }
