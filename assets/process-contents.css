@@ -42,7 +42,6 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
   scroll-padding-inline: clamp(2rem, 7vw, 7rem);
   scroll-snap-type: x proximity;
   scrollbar-width: none;
-  cursor: url("../cursor-interactive.png") 16 16, pointer;
   user-select: none;
   touch-action: pan-x;
 }
@@ -57,8 +56,8 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
     cursor: url("../cursor-default.png") 16 16, auto !important;
   }
 
-  body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article),
-  body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article) * {
+  body.wue-process-page.wue-process-landscape .wue-process-drag-zone,
+  body.wue-process-page.wue-process-landscape .wue-process-drag-zone * {
     cursor: url("../cursor-interactive.png") 16 16, pointer !important;
   }
 }

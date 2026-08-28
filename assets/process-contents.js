@@ -55,11 +55,18 @@
 
   function mount() {
     if (!isProcessPage()) {
+      document.querySelectorAll(".wue-process-drag-zone").forEach((element) => {
+        element.classList.remove("wue-process-drag-zone", "is-dragging");
+      });
       activeStrip = null;
       return;
     }
     const strip = findStrip();
     if (!strip) return;
+    document.querySelectorAll(".wue-process-drag-zone").forEach((element) => {
+      if (element !== strip) element.classList.remove("wue-process-drag-zone", "is-dragging");
+    });
+    strip.classList.add("wue-process-drag-zone");
     applyDescriptions(strip);
     if (strip.dataset.wueHorizontalReady === "true") return;
     strip.dataset.wueHorizontalReady = "true";
