@@ -60,6 +60,17 @@ body.wue-process-page.wue-process-landscape main section div.grid:has(> div > ar
   body.wue-process-page.wue-process-landscape .wue-process-drag-zone * {
     cursor: url("../cursor-interactive.png") 16 16, pointer !important;
   }
+
+  body.wue-process-page header a,
+  body.wue-process-page header a *,
+  body.wue-process-page header button,
+  body.wue-process-page header button *,
+  body.wue-process-page #site-navigation a,
+  body.wue-process-page #site-navigation a *,
+  body.wue-process-page #site-navigation button,
+  body.wue-process-page #site-navigation button * {
+    cursor: url("../cursor-interactive.png") 16 16, pointer !important;
+  }
 }
 
 body.wue-process-page.wue-process-landscape main section div.grid:has(> div > article)::-webkit-scrollbar {
