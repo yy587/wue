@@ -86,6 +86,17 @@ body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div 
   }
 }
 
+/* About: keep the English studio name on its own aligned line and let the
+   introduction use the same measure as the body copy below. */
+html.wue-about-page main aside h1 .wue-about-title-en {
+  display: block;
+}
+
+html.wue-about-page main aside h1 + p {
+  width: 100% !important;
+  max-width: none !important;
+}
+
 body.wue-awards-redesign-active .wue-awards-container {
   position: relative;
 }
