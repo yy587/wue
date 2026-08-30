@@ -21,7 +21,7 @@
     heading.textContent = match[1].trim();
     var englishTitle = document.createElement("span");
     englishTitle.className = "wue-about-title-en";
-    englishTitle.textContent = match[2];
+    englishTitle.textContent = "（" + match[2] + "）";
     heading.appendChild(englishTitle);
   }
 
