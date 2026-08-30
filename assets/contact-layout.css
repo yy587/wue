@@ -15,6 +15,17 @@ img[src*="contact-campus-sketch"] {
   transform: none;
 }
 
+/* Match the Weixin copy button to the surrounding contact account text. */
+html.wue-contact-page main aside button[type="button"][class*="underline"] {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
 @media (min-width: 1024px) {
   img[src*="contact-campus-sketch"] {
     width: auto;

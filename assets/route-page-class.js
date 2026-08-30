@@ -4,6 +4,7 @@
   function syncPageClass() {
     var path = window.location.pathname.replace(/\/+$/, "");
     document.documentElement.classList.toggle("wue-about-page", /\/about$/.test(path));
+    document.documentElement.classList.toggle("wue-contact-page", /\/contact$/.test(path));
   }
 
   ["pushState", "replaceState"].forEach(function (method) {
