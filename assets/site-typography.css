@@ -97,6 +97,12 @@ html.wue-about-page main aside h1 + p {
   max-width: none !important;
 }
 
+/* About: remove the founded/location facts and the trailing keyword index. */
+html.wue-about-page main aside h1 + p + div,
+html.wue-about-page main aside h1 + p + div + div + div {
+  display: none !important;
+}
+
 body.wue-awards-redesign-active .wue-awards-container {
   position: relative;
 }
