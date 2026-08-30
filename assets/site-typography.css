@@ -88,7 +88,7 @@ body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div 
   html.wue-about-page main section > div > div.grid > div:first-child > div {
     align-items: flex-start !important;
     justify-content: flex-end !important;
-    padding-top: 8.375rem !important;
+    padding-top: 3.5rem !important;
     padding-right: 6.75rem !important;
   }
 }
