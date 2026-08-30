@@ -109,6 +109,11 @@ html.wue-about-page main aside h1 + p + div + div + div {
   display: none !important;
 }
 
+/* Do not paint the pre-adjustment About layout during route transitions. */
+html.wue-about-page:not(.wue-about-ready) main section {
+  visibility: hidden !important;
+}
+
 body.wue-awards-redesign-active .wue-awards-container {
   position: relative;
 }
