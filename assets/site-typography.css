@@ -84,6 +84,11 @@ body:not(.wue-process-page):not(.wue-awards-redesign-active) main section > div 
     opacity: 1 !important;
     transform: none !important;
   }
+
+  html.wue-about-page main section > div > div.grid > div:first-child > div {
+    align-items: center !important;
+    justify-content: center !important;
+  }
 }
 
 /* About: keep the English studio name on its own aligned line and let the
