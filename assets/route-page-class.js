@@ -1,12 +1,25 @@
 (function () {
   "use strict";
 
+  function hasAboutContent() {
+    var aside = document.querySelector("main aside");
+    var eyebrow = aside && aside.querySelector("p");
+    return !!(eyebrow && /WUE\s+DESIGN\s*\/\s*(关于|About)/i.test(eyebrow.textContent));
+  }
+
+  function clearAboutClasses() {
+    document.documentElement.classList.remove("wue-about-page", "wue-about-ready");
+  }
+
   function syncPageClass() {
     var path = window.location.pathname.replace(/\/+$/, "");
     var isAbout = /\/about$/.test(path);
-    document.documentElement.classList.toggle("wue-about-page", isAbout);
+    if (isAbout) {
+      document.documentElement.classList.add("wue-about-page");
+    } else if (!hasAboutContent()) {
+      clearAboutClasses();
+    }
     document.documentElement.classList.toggle("wue-contact-page", /\/contact$/.test(path));
-    if (!isAbout) document.documentElement.classList.remove("wue-about-ready");
     formatAboutTitle();
   }
 
@@ -51,7 +64,12 @@
   syncPageClass();
 
   new MutationObserver(function () {
-    formatAboutTitle();
+    var path = window.location.pathname.replace(/\/+$/, "");
+    if (/\/about$/.test(path)) {
+      formatAboutTitle();
+    } else if (!hasAboutContent()) {
+      clearAboutClasses();
+    }
   }).observe(document.documentElement, {
     childList: true,
     subtree: true,
